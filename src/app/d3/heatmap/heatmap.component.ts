@@ -498,7 +498,7 @@ export class HeatmapComponent implements OnInit {
 
 
   public init(): void {
-    //this.destroyTooltip();
+    this.destroyTooltip();
     this.destroyChart();
     this.runAll();
   }

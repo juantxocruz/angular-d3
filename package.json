@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
-    "build": "ng build cross-env NODE_ENV=production ASSET_PATH=/pruebas/heatmap/build/",
+    "build": "ng build --base-href /pruebas/angular-d3/dist/angular-d3-heatmap/ --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

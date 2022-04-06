@@ -15,6 +15,7 @@ export class HeatmapLayoutService {
         private defaultVarsService: DefaultVarsService
     ) { }
 
+    // demo
     public layouts: any[] = [
         {
             // vertical bar chart

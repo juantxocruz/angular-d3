@@ -1,0 +1,78 @@
+// Color
+.text-primary {
+  color: $primary !important;
+}
+.text-secondary {
+  color: $secondary !important;
+}
+.text-success {
+  color: $success !important;
+}
+.text-danger {
+  color: $danger !important;
+}
+.text-warning {
+  color: $warning !important;
+}
+.text-info {
+  color: $info !important;
+}
+.text-light {
+  color: $black-32 !important;
+}
+.text-dark {
+  color: $black-90 !important;
+}
+.text-body {
+  color: $black-90 !important;
+}
+.text-muted {
+  color: $black-50 !important;
+}
+.text-white {
+  color: $black-0 !important;
+}
+.text-black-50 {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+.text-white-50 {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+// Background color
+.bg-primary {
+  background-color: $primary !important;
+}
+.bg-secondary {
+  background-color: $secondary !important;
+}
+.bg-success {
+  background-color: $success !important;
+}
+.bg-danger {
+  background-color: $danger !important;
+}
+.bg-warning {
+  background-color: $warning !important;
+}
+.bg-info {
+  background-color: $info !important;
+}
+.bg-light {
+  background-color: $black-8 !important;
+}
+.bg-dark {
+  background-color: $black-90 !important;
+}
+.bg-white {
+  background-color: $black-0 !important;
+}
+
+.bg-transparent {
+  background-color: transparent !important;
+}
+
+.bd-highlight {
+  background-color: rgba(86, 61, 124, 0.15) !important;
+  border: 1px solid rgba(86, 61, 124, 0.15) !important;
+}

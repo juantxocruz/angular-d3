@@ -1,0 +1,7 @@
+$map-pane-width: 320px;
+$map-left-top-height: 68px;
+
+:root {
+  --map-pane-width: #{$map-pane-width};
+  --map-left-top-height: #{$map-left-top-height};
+}

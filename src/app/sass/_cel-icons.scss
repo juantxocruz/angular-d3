@@ -1,0 +1,677 @@
+.celerate-icon {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.celerate-icon--m {
+  width: 20px;
+  height: 20px;
+}
+
+.celerate-icon--l {
+  width: 40px;
+  height: 40px;
+}
+
+.celerate-icon--xl {
+  width: 80px;
+  height: 80px;
+}
+
+.example-icon {
+  background-color: transparent;
+  border-radius: 0px;
+}
+
+.audiences-cel-color {
+  background-image: url("/assets/img/icons/SVG/icon-audiences-cel-color.svg");
+}
+
+.audiences-circle-color {
+  background-image: url("/assets/img/icons/SVG/icon-audiences-circle-color.svg");
+}
+
+.audiences-color {
+  background-image: url("/assets/img/icons/SVG/icon-audiences-color.svg");
+}
+
+.audiences-black {
+  background-image: url("/assets/img/icons/SVG/icon-audiences-black.svg");
+}
+
+.audiences-white {
+  background-image: url("/assets/img/icons/SVG/icon-audiences-white.svg");
+}
+
+.audiences-gray {
+  background-image: url("/assets/img/icons/SVG/icon-audiences-gray.svg");
+}
+
+.audiences-sq-black {
+  background-image: url("/assets/img/icons/SVG/icon-audiences-sq-black.svg");
+}
+
+.audiences-sq-color {
+  background-image: url("/assets/img/icons/SVG/icon-audiences-sq-color.svg");
+}
+
+.audiences-sq-gray {
+  background-image: url("/assets/img/icons/SVG/icon-audiences-sq-gray.svg");
+}
+
+.campaigns-cel-color {
+  background-image: url("/assets/img/icons/SVG/icon-campaigns-cel-color.svg");
+}
+
+.campaigns-circle-color {
+  background-image: url("/assets/img/icons/SVG/icon-campaigns-circle-color.svg");
+}
+
+.campaigns-color {
+  background-image: url("/assets/img/icons/SVG/icon-campaigns-color.svg");
+}
+
+.campaigns-black {
+  background-image: url("/assets/img/icons/SVG/icon-campaigns-black.svg");
+}
+
+.campaigns-white {
+  background-image: url("/assets/img/icons/SVG/icon-campaigns-white.svg");
+}
+
+.campaigns-gray {
+  background-image: url("/assets/img/icons/SVG/icon-campaigns-gray.svg");
+}
+
+.campaigns-sq-black {
+  background-image: url("/assets/img/icons/SVG/icon-campaigns-sq-black.svg");
+}
+
+.campaigns-sq-color {
+  background-image: url("/assets/img/icons/SVG/icon-campaigns-sq-color.svg");
+}
+
+.campaigns-sq-gray {
+  background-image: url("/assets/img/icons/SVG/icon-campaigns-sq-gray.svg");
+}
+
+.ooh-cel-color {
+  background-image: url("/assets/img/icons/SVG/icon-ooh-cel-color.svg");
+}
+
+.ooh-circle-color {
+  background-image: url("/assets/img/icons/SVG/icon-ooh-circle-color.svg");
+}
+
+.ooh-color {
+  background-image: url("/assets/img/icons/SVG/icon-ooh-color.svg");
+}
+
+.ooh-black {
+  background-image: url("/assets/img/icons/SVG/icon-ooh-black.svg");
+}
+
+.ooh-white {
+  background-image: url("/assets/img/icons/SVG/icon-ooh-white.svg");
+}
+
+.ooh-gray {
+  background-image: url("/assets/img/icons/SVG/icon-ooh-gray.svg");
+}
+
+.ooh-sq-black {
+  background-image: url("/assets/img/icons/SVG/icon-ooh-sq-black.svg");
+}
+
+.ooh-sq-color {
+  background-image: url("/assets/img/icons/SVG/icon-ooh-sq-color.svg");
+}
+
+.ooh-sq-gray {
+  background-image: url("/assets/img/icons/SVG/icon-ooh-sq-gray.svg");
+}
+
+.info-cel-color {
+  background-image: url("/assets/img/icons/SVG/icon-info-cel-color.svg");
+}
+
+.info-circle-color {
+  background-image: url("/assets/img/icons/SVG/icon-info-circle-color.svg");
+}
+
+.info-color {
+  background-image: url("/assets/img/icons/SVG/icon-info-color.svg");
+}
+
+.info-black {
+  background-image: url("/assets/img/icons/SVG/icon-info-black.svg");
+}
+
+.info-white {
+  background-image: url("/assets/img/icons/SVG/icon-info-white.svg");
+}
+
+.info-gray {
+  background-image: url("/assets/img/icons/SVG/icon-info-gray.svg");
+}
+
+.info-sq-black {
+  background-image: url("/assets/img/icons/SVG/icon-info-sq-black.svg");
+}
+
+.info-sq-color {
+  background-image: url("/assets/img/icons/SVG/icon-info-sq-color.svg");
+}
+
+.info-sq-gray {
+  background-image: url("/assets/img/icons/SVG/icon-info-sq-gray.svg");
+}
+
+.user-cel-color {
+  background-image: url("/assets/img/icons/SVG/icon-user-cel-color.svg");
+}
+
+.user-circle-color {
+  background-image: url("/assets/img/icons/SVG/icon-user-circle-color.svg");
+}
+
+.user-color {
+  background-image: url("/assets/img/icons/SVG/icon-user-color.svg");
+}
+
+.user-black {
+  background-image: url("/assets/img/icons/SVG/icon-user-black.svg");
+}
+
+.user-white {
+  background-image: url("/assets/img/icons/SVG/icon-user-white.svg");
+}
+
+.user-gray {
+  background-image: url("/assets/img/icons/SVG/icon-user-gray.svg");
+}
+
+.user-sq-black {
+  background-image: url("/assets/img/icons/SVG/icon-user-sq-black.svg");
+}
+
+.user-sq-color {
+  background-image: url("/assets/img/icons/SVG/icon-user-sq-color.svg");
+}
+
+.user-sq-gray {
+  background-image: url("/assets/img/icons/SVG/icon-user-sq-gray.svg");
+}
+
+.analytics-cel-color {
+  background-image: url("/assets/img/icons/SVG/icon-analytics-cel-color.svg");
+}
+
+.analytics-circle-color {
+  background-image: url("/assets/img/icons/SVG/icon-analytics-circle-color.svg");
+}
+
+.analytics-color {
+  background-image: url("/assets/img/icons/SVG/icon-analytics-color.svg");
+}
+
+.analytics-black {
+  background-image: url("/assets/img/icons/SVG/icon-analytics-black.svg");
+}
+
+.analytics-white {
+  background-image: url("/assets/img/icons/SVG/icon-analytics-white.svg");
+}
+
+.analytics-gray {
+  background-image: url("/assets/img/icons/SVG/icon-analytics-gray.svg");
+}
+
+.analytics-sq-black {
+  background-image: url("/assets/img/icons/SVG/icon-analytics-sq-black.svg");
+}
+
+.analytics-sq-color {
+  background-image: url("/assets/img/icons/SVG/icon-analytics-sq-color.svg");
+}
+
+.analytics-sq-gray {
+  background-image: url("/assets/img/icons/SVG/icon-analytics-sq-gray.svg");
+}
+
+.clicks-cel-color {
+  background-image: url("/assets/img/icons/SVG/icon-clicks-cel-color.svg");
+}
+
+.clicks-circle-color {
+  background-image: url("/assets/img/icons/SVG/icon-clicks-circle-color.svg");
+}
+
+.clicks-color {
+  background-image: url("/assets/img/icons/SVG/icon-clicks-color.svg");
+}
+
+.clicks-black {
+  background-image: url("/assets/img/icons/SVG/icon-clicks-black.svg");
+}
+
+.clicks-white {
+  background-image: url("/assets/img/icons/SVG/icon-clicks-white.svg");
+}
+
+.clicks-gray {
+  background-image: url("/assets/img/icons/SVG/icon-clicks-gray.svg");
+}
+
+.clicks-sq-black {
+  background-image: url("/assets/img/icons/SVG/icon-clicks-sq-black.svg");
+}
+
+.clicks-sq-color {
+  background-image: url("/assets/img/icons/SVG/icon-clicks-sq-color.svg");
+}
+
+.clicks-sq-gray {
+  background-image: url("/assets/img/icons/SVG/icon-clicks-sq-gray.svg");
+}
+
+.cost-cel-color {
+  background-image: url("/assets/img/icons/SVG/icon-cost-cel-color.svg");
+}
+
+.cost-circle-color {
+  background-image: url("/assets/img/icons/SVG/icon-cost-circle-color.svg");
+}
+
+.cost-color {
+  background-image: url("/assets/img/icons/SVG/icon-cost-color.svg");
+}
+
+.cost-black {
+  background-image: url("/assets/img/icons/SVG/icon-cost-black.svg");
+}
+
+.cost-white {
+  background-image: url("/assets/img/icons/SVG/icon-cost-white.svg");
+}
+
+.cost-gray {
+  background-image: url("/assets/img/icons/SVG/icon-cost-gray.svg");
+}
+
+.cost-sq-black {
+  background-image: url("/assets/img/icons/SVG/icon-cost-sq-black.svg");
+}
+
+.cost-sq-color {
+  background-image: url("/assets/img/icons/SVG/icon-cost-sq-color.svg");
+}
+
+.cost-sq-gray {
+  background-image: url("/assets/img/icons/SVG/icon-cost-sq-gray.svg");
+}
+
+.ctr-cel-color {
+  background-image: url("/assets/img/icons/SVG/icon-ctr-cel-color.svg");
+}
+
+.ctr-circle-color {
+  background-image: url("/assets/img/icons/SVG/icon-ctr-circle-color.svg");
+}
+
+.ctr-color {
+  background-image: url("/assets/img/icons/SVG/icon-ctr-color.svg");
+}
+
+.ctr-black {
+  background-image: url("/assets/img/icons/SVG/icon-ctr-black.svg");
+}
+
+.ctr-white {
+  background-image: url("/assets/img/icons/SVG/icon-ctr-white.svg");
+}
+
+.ctr-gray {
+  background-image: url("/assets/img/icons/SVG/icon-ctr-gray.svg");
+}
+
+.ctr-sq-black {
+  background-image: url("/assets/img/icons/SVG/icon-ctr-sq-black.svg");
+}
+
+.ctr-sq-color {
+  background-image: url("/assets/img/icons/SVG/icon-ctr-sq-color.svg");
+}
+
+.ctr-sq-gray {
+  background-image: url("/assets/img/icons/SVG/icon-ctr-sq-gray.svg");
+}
+
+.documents-cel-color {
+  background-image: url("/assets/img/icons/SVG/icon-documents-cel-color.svg");
+}
+
+.documents-circle-color {
+  background-image: url("/assets/img/icons/SVG/icon-documents-circle-color.svg");
+}
+
+.documents-color {
+  background-image: url("/assets/img/icons/SVG/icon-documents-color.svg");
+}
+
+.documents-black {
+  background-image: url("/assets/img/icons/SVG/icon-documents-black.svg");
+}
+
+.documents-white {
+  background-image: url("/assets/img/icons/SVG/icon-documents-white.svg");
+}
+
+.documents-gray {
+  background-image: url("/assets/img/icons/SVG/icon-documents-gray.svg");
+}
+
+.documents-sq-black {
+  background-image: url("/assets/img/icons/SVG/icon-documents-sq-black.svg");
+}
+
+.documents-sq-color {
+  background-image: url("/assets/img/icons/SVG/icon-documents-sq-color.svg");
+}
+
+.documents-sq-gray {
+  background-image: url("/assets/img/icons/SVG/icon-documents-sq-gray.svg");
+}
+
+.edit-cel-color {
+  background-image: url("/assets/img/icons/SVG/icon-edit-cel-color.svg");
+}
+
+.edit-circle-color {
+  background-image: url("/assets/img/icons/SVG/icon-edit-circle-color.svg");
+}
+
+.edit-color {
+  background-image: url("/assets/img/icons/SVG/icon-edit-color.svg");
+}
+
+.edit-black {
+  background-image: url("/assets/img/icons/SVG/icon-edit-black.svg");
+}
+
+.edit-white {
+  background-image: url("/assets/img/icons/SVG/icon-edit-white.svg");
+}
+
+.edit-gray {
+  background-image: url("/assets/img/icons/SVG/icon-edit-gray.svg");
+}
+
+.edit-sq-black {
+  background-image: url("/assets/img/icons/SVG/icon-edit-sq-black.svg");
+}
+
+.edit-sq-color {
+  background-image: url("/assets/img/icons/SVG/icon-edit-sq-color.svg");
+}
+
+.edit-sq-gray {
+  background-image: url("/assets/img/icons/SVG/icon-edit-sq-gray.svg");
+}
+
+.impressions-cel-color {
+  background-image: url("/assets/img/icons/SVG/icon-impressions-cel-color.svg");
+}
+
+.impressions-circle-color {
+  background-image: url("/assets/img/icons/SVG/icon-impressions-circle-color.svg");
+}
+
+.impressions-color {
+  background-image: url("/assets/img/icons/SVG/icon-impressions-color.svg");
+}
+
+.impressions-black {
+  background-image: url("/assets/img/icons/SVG/icon-impressions-black.svg");
+}
+
+.impressions-white {
+  background-image: url("/assets/img/icons/SVG/icon-impressions-white.svg");
+}
+
+.impressions-gray {
+  background-image: url("/assets/img/icons/SVG/icon-impressions-gray.svg");
+}
+
+.impressions-sq-black {
+  background-image: url("/assets/img/icons/SVG/icon-impressions-sq-black.svg");
+}
+
+.impressions-sq-color {
+  background-image: url("/assets/img/icons/SVG/icon-impressions-sq-color.svg");
+}
+
+.impressions-sq-gray {
+  background-image: url("/assets/img/icons/SVG/icon-impressions-sq-gray.svg");
+}
+
+.map-cel-color {
+  background-image: url("/assets/img/icons/SVG/icon-map-cel-color.svg");
+}
+
+.map-circle-color {
+  background-image: url("/assets/img/icons/SVG/icon-map-circle-color.svg");
+}
+
+.map-color {
+  background-image: url("/assets/img/icons/SVG/icon-map-color.svg");
+}
+
+.map-black {
+  background-image: url("/assets/img/icons/SVG/icon-map-black.svg");
+}
+
+.map-white {
+  background-image: url("/assets/img/icons/SVG/icon-map-white.svg");
+}
+
+.map-gray {
+  background-image: url("/assets/img/icons/SVG/icon-map-gray.svg");
+}
+
+.map-sq-black {
+  background-image: url("/assets/img/icons/SVG/icon-map-sq-black.svg");
+}
+
+.map-sq-color {
+  background-image: url("/assets/img/icons/SVG/icon-map-sq-color.svg");
+}
+
+.map-sq-gray {
+  background-image: url("/assets/img/icons/SVG/icon-map-sq-gray.svg");
+}
+
+.mobile-cel-color {
+  background-image: url("/assets/img/icons/SVG/icon-mobile-cel-color.svg");
+}
+
+.mobile-circle-color {
+  background-image: url("/assets/img/icons/SVG/icon-mobile-circle-color.svg");
+}
+
+.mobile-color {
+  background-image: url("/assets/img/icons/SVG/icon-mobile-color.svg");
+}
+
+.mobile-black {
+  background-image: url("/assets/img/icons/SVG/icon-mobile-black.svg");
+}
+
+.mobile-white {
+  background-image: url("/assets/img/icons/SVG/icon-mobile-white.svg");
+}
+
+.mobile-gray {
+  background-image: url("/assets/img/icons/SVG/icon-mobile-gray.svg");
+}
+
+.mobile-sq-black {
+  background-image: url("/assets/img/icons/SVG/icon-mobile-sq-black.svg");
+}
+
+.mobile-sq-color {
+  background-image: url("/assets/img/icons/SVG/icon-mobile-sq-color.svg");
+}
+
+.mobile-sq-gray {
+  background-image: url("/assets/img/icons/SVG/icon-mobile-sq-gray.svg");
+}
+
+.planning-cel-color {
+  background-image: url("/assets/img/icons/SVG/icon-planning-cel-color.svg");
+}
+
+.planning-circle-color {
+  background-image: url("/assets/img/icons/SVG/icon-planning-circle-color.svg");
+}
+
+.planning-color {
+  background-image: url("/assets/img/icons/SVG/icon-planning-color.svg");
+}
+
+.planning-black {
+  background-image: url("/assets/img/icons/SVG/icon-planning-black.svg");
+}
+
+.planning-white {
+  background-image: url("/assets/img/icons/SVG/icon-planning-white.svg");
+}
+
+.planning-gray {
+  background-image: url("/assets/img/icons/SVG/icon-planning-gray.svg");
+}
+
+.planning-sq-black {
+  background-image: url("/assets/img/icons/SVG/icon-planning-sq-black.svg");
+}
+
+.planning-sq-color {
+  background-image: url("/assets/img/icons/SVG/icon-planning-sq-color.svg");
+}
+
+.planning-sq-gray {
+  background-image: url("/assets/img/icons/SVG/icon-planning-sq-gray.svg");
+}
+
+.pois-cel-color {
+  background-image: url("/assets/img/icons/SVG/icon-pois-cel-color.svg");
+}
+
+.pois-circle-color {
+  background-image: url("/assets/img/icons/SVG/icon-pois-circle-color.svg");
+}
+
+.pois-color {
+  background-image: url("/assets/img/icons/SVG/icon-pois-color.svg");
+}
+
+.pois-black {
+  background-image: url("/assets/img/icons/SVG/icon-pois-black.svg");
+}
+
+.pois-white {
+  background-image: url("/assets/img/icons/SVG/icon-pois-white.svg");
+}
+
+.pois-gray {
+  background-image: url("/assets/img/icons/SVG/icon-pois-gray.svg");
+}
+
+.pois-sq-black {
+  background-image: url("/assets/img/icons/SVG/icon-pois-sq-black.svg");
+}
+
+.pois-sq-color {
+  background-image: url("/assets/img/icons/SVG/icon-pois-sq-color.svg");
+}
+
+.pois-sq-gray {
+  background-image: url("/assets/img/icons/SVG/icon-pois-sq-gray.svg");
+}
+
+.visitors-cel-color {
+  background-image: url("/assets/img/icons/SVG/icon-visitors-cel-color.svg");
+}
+
+.visitors-circle-color {
+  background-image: url("/assets/img/icons/SVG/icon-visitors-circle-color.svg");
+}
+
+.visitors-color {
+  background-image: url("/assets/img/icons/SVG/icon-visitors-color.svg");
+}
+
+.visitors-black {
+  background-image: url("/assets/img/icons/SVG/icon-visitors-black.svg");
+}
+
+.visitors-white {
+  background-image: url("/assets/img/icons/SVG/icon-visitors-white.svg");
+}
+
+.visitors-gray {
+  background-image: url("/assets/img/icons/SVG/icon-visitors-gray.svg");
+}
+
+.visitors-sq-black {
+  background-image: url("/assets/img/icons/SVG/icon-visitors-sq-black.svg");
+}
+
+.visitors-sq-color {
+  background-image: url("/assets/img/icons/SVG/icon-visitors-sq-color.svg");
+}
+
+.visitors-sq-gray {
+  background-image: url("/assets/img/icons/SVG/icon-visitors-sq-gray.svg");
+}
+
+.visits-cel-color {
+  background-image: url("/assets/img/icons/SVG/icon-visits-cel-color.svg");
+}
+
+.visits-circle-color {
+  background-image: url("/assets/img/icons/SVG/icon-visits-circle-color.svg");
+}
+
+.visits-color {
+  background-image: url("/assets/img/icons/SVG/icon-visits-color.svg");
+}
+
+.visits-black {
+  background-image: url("/assets/img/icons/SVG/icon-visits-black.svg");
+}
+
+.visits-white {
+  background-image: url("/assets/img/icons/SVG/icon-visits-white.svg");
+}
+
+.visits-gray {
+  background-image: url("/assets/img/icons/SVG/icon-visits-gray.svg");
+}
+
+.visits-sq-black {
+  background-image: url("/assets/img/icons/SVG/icon-visits-sq-black.svg");
+}
+
+.visits-sq-color {
+  background-image: url("/assets/img/icons/SVG/icon-visits-sq-color.svg");
+}
+
+.visits-sq-gray {
+  background-image: url("/assets/img/icons/SVG/icon-visits-sq-gray.svg");
+}

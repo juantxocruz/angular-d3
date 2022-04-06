@@ -1,0 +1,113 @@
+html {
+  font-family: $font-family-sans-serif !important;
+  color: $black-90;
+  font-size: $font-base;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  font-family: $font-family-sans-serif;
+}
+
+body {
+  font-family: $font-family-sans-serif !important;
+  font-size: $font__size--s;
+  line-height: $line__height-factor * $font__size--s;
+}
+
+html,
+body {
+  height: 100%;
+  max-width: 100vw;
+}
+
+abbr,
+acronym {
+  border-bottom: 1px dotted $black-75;
+  cursor: help;
+}
+
+mark,
+ins {
+  background: $narrow-yellow;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+h3 {
+  font-weight: 700 !important;
+  margin-top: 1rem;
+
+  &.primary {
+    color: $primary;
+  }
+  &.secondary {
+    color: $secondary;
+  }
+}
+
+.app-drawer {
+  border-left: 8px solid $primary;
+}
+.pdf-body .app-drawer {
+  border-left: none;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+a {
+  text-decoration: none;
+  color: $secondary;
+  transition: color 0.4s ease;
+
+  &:hover {
+    color: $secondary--light;
+  }
+}
+
+.text-small {
+  font-size: 11px;
+}
+
+.mat-chip {
+  .mat-chip-remove {
+    border: 0;
+    background: transparent;
+    position: relative;
+
+    .mat-icon {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+p.text-strong-xs {
+  font-size: 12px;
+  margin: 4px 0 0 0;
+  line-height: 1;
+  font-weight: bolder;
+}
+
+p.text-normal-xs {
+  font-size: 12px;
+  margin: 4px 0 0 0;
+  line-height: 1;
+  font-weight: normal;
+}

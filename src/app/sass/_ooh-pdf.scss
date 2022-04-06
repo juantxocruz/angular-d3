@@ -1,0 +1,375 @@
+@media screen {
+  .pdf-body {
+    section {
+      & > article {
+        margin-bottom: 2rem !important;
+
+        &:first-of-type {
+          margin-top: 2rem !important;
+        }
+      }
+    }
+  }
+}
+
+.pdf-body {
+  #navbar {
+    display: none !important;
+  }
+
+  section.ooh-pdf {
+    margin: 0;
+    padding: 0;
+
+    * {
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+
+    div[data-size="A4"] {
+      position: relative;
+      background-color: white;
+      /*background-image: url("../../assets/img/pdf/pdf-layout.webp");*/
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 21cm;
+      height: 29.7cm;
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 0cm;
+      box-shadow: 0 0 0.4cm rgba(var(--black-8, whiteSmoke), 0.5);
+      padding: 0px 56px;
+      clear: both;
+    }
+
+    footer {
+      position: absolute;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      bottom: 24px !important;
+      left: 0;
+      right: 0;
+
+      p {
+        font-size: 10px;
+      }
+    }
+
+    .hidden,
+    div.hidden,
+    .hidden-on-print {
+      display: none;
+    }
+
+    // layout
+    .column,
+    .columns {
+      width: 100%;
+      float: left;
+      box-sizing: border-box;
+    }
+
+    .column,
+    .columns {
+      margin-left: 4%;
+    }
+
+    .column:first-child,
+    .columns:first-child {
+      margin-left: 0;
+    }
+
+    .one.column,
+    .one.columns {
+      width: 4.66666666667%;
+    }
+
+    .two.columns {
+      width: 13.3333333333%;
+    }
+
+    .three.columns {
+      width: 22%;
+    }
+
+    .four.columns {
+      width: 30.6666666667%;
+    }
+
+    .five.columns {
+      width: 39.3333333333%;
+    }
+
+    .six.columns {
+      width: 48%;
+    }
+
+    .seven.columns {
+      width: 56.6666666667%;
+    }
+
+    .eight.columns {
+      width: 65.3333333333%;
+    }
+
+    .nine.columns {
+      width: 74%;
+    }
+
+    .ten.columns {
+      width: 82.6666666667%;
+    }
+
+    .eleven.columns {
+      width: 91.3333333333%;
+    }
+
+    .twelve.columns {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .one-third.column {
+      width: 30.6666666667%;
+    }
+
+    .two-thirds.column {
+      width: 65.3333333333%;
+    }
+
+    .one-half.column {
+      width: 48%;
+    }
+
+    .tColumn.column {
+      width: 46.7%;
+    }
+
+    .tGutter.column {
+      width: 0.1%;
+      border-right: 1px solid black;
+      float: left;
+      margin-left: 16px;
+    }
+
+    /* Only in front page, must be converted to Skeleton layout system  */
+    .six-col-full {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      display: block;
+    }
+
+    .four-col-middle {
+      width: 100%;
+      padding: 0 120px;
+      display: block;
+    }
+
+    // line between
+    .line-between {
+      border-right: 1px solid black;
+      padding-right: 16px;
+    }
+
+    /* Clearing
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+    /* Self Clearing Goodness */
+    .container:after,
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Modules
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+    .module,
+    .modules {
+      background: inherit;
+    }
+
+    /* Modules*/
+    .one.module,
+    .one.modules {
+      height: 128px;
+    }
+
+    .oneplus.module,
+    .oneplus.modules {
+      height: 192px;
+    }
+
+    .two.modules {
+      height: 292px;
+    }
+
+    .three.modules {
+      height: 456px;
+    }
+
+    .four.modules {
+      height: 622px;
+    }
+
+    .five.modules {
+      height: 786px;
+    }
+
+    .six.modules {
+      height: 950px;
+    }
+
+    #navbar {
+      display: none;
+    }
+
+    .front-map,
+    .map-wrapper,
+    .map-elementRef {
+      height: 420px !important;
+      min-height: 420px !important;
+    }
+
+    .fs-5 {
+      font-size: 1.2rem !important;
+    }
+
+    .my-2 {
+      margin-top: 8px !important;
+      margin-bottom: 8px !important;
+    }
+
+    footer {
+      position: absolute;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 24px;
+      bottom: 24px !important;
+      left: 0;
+      right: 0;
+
+      p,
+      p.text-normal-xs {
+        font-size: 10px;
+        margin: 0;
+      }
+    }
+  }
+
+  p.address {
+    margin: 0;
+  }
+
+  p.text-strong-xs,
+  p.text-normal-xs {
+    font-size: 10px;
+  }
+
+  h3.big-number {
+    margin: 0;
+  }
+
+  .vertical-chart,
+  .horizontal-chart {
+    width: 100% !important;
+
+    .line-wrapper {
+      .title,
+      .percent,
+      .value {
+        font-size: 10px !important;
+        line-height: 10px !important;
+        margin: 0;
+        margin-top: 4px;
+        text-align: center;
+      }
+    }
+  }
+
+  .legend {
+    font-size: 10px;
+  }
+
+  table {
+    border-collapse: collapse;
+
+    td {
+      font-size: 12px;
+    }
+  }
+
+  tr {
+    border-bottom: 1px solid whitesmoke;
+  }
+
+  .fxPrintRow {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 12px;
+  }
+}
+
+@media print {
+  @page {
+    margin: 0;
+    size: A4 portrait;
+  }
+
+  .pdf-body {
+    * {
+      -webkit-print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+
+    div[data-size="A4"] {
+      background: transparent;
+      width: 21cm;
+      height: 29.7cm;
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 0 !important;
+      overflow: hidden;
+    }
+
+    html,
+    body {
+      height: auto !important;
+      width: 21cm !important;
+      box-shadow: none;
+    }
+
+    .hidden,
+    .fxPrintHidden {
+      display: none;
+    }
+
+    html,
+    body,
+    section,
+    article,
+    header {
+      background-color: white;
+    }
+
+    // Flex-layout responsive breakpoints not working on print media. WHY??
+    // It do not work if the container uses display:flex
+    .page-break-before {
+      page-break-before: always !important;
+    }
+
+    .page-break-after {
+      page-break-after: always;
+    }
+
+    .page-break-inside {
+      page-break-inside: avoid;
+      -webkit-region-break-inside: avoid;
+    }
+  }
+}

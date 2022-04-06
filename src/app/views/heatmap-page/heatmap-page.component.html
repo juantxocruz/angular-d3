@@ -1,0 +1,43 @@
+<main>
+    <div class="container">
+        <section>
+            <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutGap="2rem">
+                <div fxFlex="100%">
+                    <h1>Popular Times busy hours</h1>
+                    <h4>Seleccione un punto de interés</h4>
+                    <mat-form-field appearance="fill" *ngIf="popularPoisOptions">
+                        <mat-label>Poi</mat-label>
+                        <mat-select (selectionChange)="changePopularTimesPoi($event)" [(ngModel)]="selectedItem">
+                            <mat-option *ngFor="let o of popularPoisOptions" [value]="o">
+                                {{o}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <ng-template #popularTimesPoi>
+                        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                    </ng-template>
+
+
+                    <app-heatmap *ngIf="popularTimesDot$ | async as popularTimesPoi; else popularTimesPoi"
+                        [data]="popularTimesPoi" [layout]="heatmapLayout" [hour]="hour"></app-heatmap>
+                </div>
+            </div>
+        </section>
+
+        <!--       <section>
+            <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutGap="2rem">
+                <div fxFlex="50%">
+                    <p>New</p>
+
+                    50%
+                </div>
+                <div fxFlex="50%">
+                    <p>heatmap-page works!</p>
+
+                    50%
+                </div>
+            </div>
+        </section> -->
+    </div>
+</main>

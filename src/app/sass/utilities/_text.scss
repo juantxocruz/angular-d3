@@ -1,0 +1,199 @@
+// wrap
+.text-wrap {
+  white-space: normal !important;
+}
+//  overflow the parent.
+.text-nowrap {
+  white-space: nowrap !important;
+}
+
+//Word break
+// Prevent long strings of text from breaking your components' layout by using .text-break to set word-wrap: break-word and word-break: break-word. We use word-wrap instead of the more common
+.text-break {
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+// text transform
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+// font size
+.fs-1 {
+  font-size: calc(1.375rem + 1.5vw) !important;
+}
+.fs-2 {
+  font-size: calc(1.325rem + 0.9vw) !important;
+}
+.fs-3 {
+  font-size: calc(1.3rem + 0.6vw) !important;
+}
+.fs-4 {
+  font-size: calc(1.275rem + 0.3vw) !important;
+}
+.fs-5 {
+  font-size: 1.25rem !important;
+}
+.fs-6 {
+  font-size: 1rem !important;
+}
+
+@media screen and (min-width: 1200px) {
+  .fs-1 {
+    font-size: 2.5rem !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .fs-2 {
+    font-size: 2rem !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .fs-3 {
+    font-size: 1.75rem !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .fs-4 {
+    font-size: 1.5rem !important;
+  }
+}
+
+// Font weight and italics
+.fw-fw-bold {
+  font-weight: 700 !important;
+}
+.fw-bolder {
+  font-weight: 900 !important;
+}
+.fw-normal {
+  font-weight: 400 !important;
+}
+.fw-light {
+  font-weight: 300 !important;
+}
+.fw-lighter {
+  font-weight: lighter !important;
+}
+.fst-italic {
+  font-style: italic !important;
+}
+.fst-normal {
+  font-style: normal !important;
+}
+
+// Line height
+.lh-1 {
+  line-height: 1 !important;
+}
+
+.lh-sm {
+  line-height: 1.25 !important;
+}
+
+.lh-base {
+  line-height: 1.5 !important;
+}
+.lh-lg {
+  line-height: 2 !important;
+}
+// text decoration
+.text-decoration-underline {
+  text-decoration: underline !important;
+}
+.text-decoration-line-through {
+  text-decoration: line-through !important;
+}
+.text-decoration-none {
+  text-decoration: none !important;
+}
+
+// text alignment
+.text-start {
+  text-align: left !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-end {
+  text-align: right !important;
+}
+
+@media screen and (min-width: 576px) {
+  .text-sm-start {
+    text-align: left !important;
+  }
+}
+@media screen and (min-width: 768px) {
+  .text-md-start {
+    text-align: left !important;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .text-lg-start {
+    text-align: left !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .text-xl-start {
+    text-align: left !important;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .text-sm-center {
+    text-align: center !important;
+  }
+}
+@media screen and (min-width: 768px) {
+  .text-md-center {
+    text-align: center !important;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .text-lg-center {
+    text-align: center !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .text-xl-center {
+    text-align: center !important;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .text-sm-end {
+    text-align: right !important;
+  }
+}
+@media screen and (min-width: 768px) {
+  .text-md-end {
+    text-align: right !important;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .text-lg-end {
+    text-align: right !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .text-xl-end {
+    text-align: right !important;
+  }
+}

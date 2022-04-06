@@ -1,0 +1,18 @@
+$estudio-sidenav-width: 320px;
+$stores-sidenav-width: 240px;
+
+// toolbar
+$mat-toolbar-height: 64px;
+$toolbar-height: 56px;
+$searchbox-height: 48px;
+$searchbox-width: 280px;
+$searchbox-radius: 4px;
+
+// navbar
+$navbar-height: 64px;
+$footer-height: 48px;
+
+:root {
+  --navbar-height: #{$navbar-height};
+  --footer-height: #{$footer-height};
+}

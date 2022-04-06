@@ -1,0 +1,87 @@
+$deep-blue: #2b00ff;
+$blue: #0055ff;
+$sky: #00d8fa;
+$narrow-blue: #e4f0f9;
+$magenta: #cc518f;
+$magenta-gray: #c193b4;
+$purple: #5f249f;
+$deep-purple: #4c1c7f;
+$narrow-purple: #e8cfde;
+$light-purple: #e3ebf4;
+$red: #e11b22;
+$deep-red: #b2141a;
+$narrow-red: #f9d1d2;
+$orange: #ed6f22;
+$deep-orange: #bb5a16;
+$narrow-orange: #f5e0d1;
+$yellow: #ffcc33;
+$deep-yellow: #e5b72d;
+$narrow-yellow: #fff4d6;
+$green: #6d9e04;
+$deep-green: #677a22;
+$green-gray: #bad483;
+$teal: #51acb8;
+$khaki: #e2d7ac;
+$sand: #b4a996;
+$razzmatazz: #f30051;
+$light-razzmatazz: #ff2f74;
+$deep-razzmatazz: #990033;
+$raspberry: #872657;
+
+$black: rgb(0, 0, 0) !default;
+$black-100: $black !default;
+$black-90: rgb(25, 25, 25) !default; // #191919
+$black-75: rgb(102, 102, 102) !default; // #666666
+$black-50: rgb(153, 153, 153) !default; // #999999
+$black-32: #b2b2b2 !default; // #b2b2b2
+$black-25: rgb(204, 204, 204) !default; // #cccccc
+$black-8: rgb(229, 229, 229) !default; // #E5E5E5
+$black-0: rgb(255, 255, 255);
+$white: $black-0;
+
+$primary: $razzmatazz;
+$primary--deep: darken($primary, 20);
+$primary--light: lighten($primary, 20);
+
+$secondary: $raspberry;
+$secondary--deep: darken($secondary, 20);
+$secondary--light: lighten($secondary, 20);
+
+$tertiary: $orange;
+$tertiary--deep: darken($tertiary, 20);
+$tertiary--light: lighten($tertiary, 20);
+
+$success: $green;
+$danger: $light-razzmatazz;
+$warning: $deep-razzmatazz;
+$info: $secondary;
+
+:root {
+  --primary: #{$primary};
+  --primary-deep: #{$primary--deep};
+  --primary-light: #{$primary--light};
+
+  --secondary: #{$secondary};
+  --secondary-deep: #{$secondary--deep};
+  --secondary-light: #{$secondary--light};
+
+  --tertiary: #{$tertiary};
+  --tertiary-deep: #{$tertiary--deep};
+  --tertiary-light: #{$tertiary--light};
+
+  --warn: #{$orange};
+  --warn-deep: #{$deep-orange};
+
+  --accent: #{$secondary};
+  --accent-deep: #{$secondary--deep};
+
+  --black-100: #{$black-100};
+  --black-90: #{$black-90};
+  --black-75: #{$black-75};
+  --black-50: #{$black-50};
+  --black-32: #{$black-32};
+  --black-25: #{$black-25};
+  --black-8: #{$black-8};
+  --black-0: #{$black-0};
+  --white: #{$black-0};
+}

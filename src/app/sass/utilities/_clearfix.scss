@@ -1,0 +1,10 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+}

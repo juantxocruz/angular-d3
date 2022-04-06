@@ -1,0 +1,141 @@
+$font__path: "/assets/fonts/";
+@font-face {
+  font-family: "Plex";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF; /* Latin glyphs */
+  src: url($font__path + "IBMPlex/IBMPlexSans-ExtraLight.eot");
+  src: local("IBM Plex Sans ExtraLight"), local("IBMPlexSans-ExtraLight"),
+    url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjR7_AI9sdP3pBmtF8A.woff2)
+      format("woff2"),
+    url($font__path + "IBMPlex/IBMPlexSans-ExtraLight.woff2") format("wof2"),
+    url($font__path + "IBMPlex/IBMPlexSans-ExtraLight.woff") format("woff"),
+    url($font__path + "IBMPlex/IBMPlexSans-ExtraLight.ttf") format("truetype"),
+    url($font__path + "IBMPlex/IBMPlexSans-ExtraLight.eot?#iefix")
+      format("embedded-opentype");
+}
+
+@font-face {
+  font-family: "Plex";
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+000-5FF; /* Latin glyphs */
+  src: url($font__path + "IBMPlex/IBMPlexSans-ExtraLightItalic.eot");
+  src: local("IBM Plex Sans ExtraLight"), local("IBMPlexSans-ExtraLightItalic"),
+    url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX7KVElMYYaJe8bpLHnCwDKhdTm2Idce_fuJGl18QRY.woff2)
+      format("woff2"),
+    url($font__path + "IBMPlex/IBMPlexSans-ExtraLightItalic.woff2")
+      format("wof2"),
+    url($font__path + "IBMPlex/IBMPlexSans-ExtraLightItalic.woff")
+      format("woff"),
+    url($font__path + "IBMPlex/IBMPlexSans-ExtraLightItalic.ttf")
+      format("truetype"),
+    url($font__path + "IBMPlex/IBMPlexSans-ExtraLightItalic.eot?#iefix")
+      format("embedded-opentype");
+}
+
+@font-face {
+  font-family: "Plex";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF; /* Latin glyphs */
+  src: url($font__path + "IBMPlex/IBMPlexSans-Regular.eot");
+  src: local("IBM Plex Sans Regular"), local("IBMPlexSans-Regular"),
+    url(https://fonts.gstatic.com/s/ibmplexsans/v7/zYXgKVElMYYaJe8bpLHnCwDKhdHeFaxOedc.woff2)
+      format("woff2"),
+    url($font__path + "IBMPlex/IBMPlexSans-Regular.woff2") format("wof2"),
+    url($font__path + "IBMPlex/IBMPlexSans-Regular.woff") format("woff"),
+    url($font__path + "IBMPlex/IBMPlexSans-Regular.ttf") format("truetype"),
+    url($font__path + "IBMPlex/IBMPlexSans-Regular.eot?#iefix")
+      format("embedded-opentype");
+}
+
+@font-face {
+  font-family: "Plex";
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+000-5FF; /* Latin glyphs */
+  src: url($font__path + "IBMPlex/IBMPlexSans-Italic.eot");
+  src: local("IBM Plex Sans Italic"), local("IBMPlexSans-Italic"),
+    url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX-KVElMYYaJe8bpLHnCwDKhdTuGaZJW9XjDlN8.woff2)
+      format("woff2"),
+    url($font__path + "IBMPlex/IBMPlexSans-Italic.woff2") format("wof2"),
+    url($font__path + "IBMPlex/IBMPlexSans-Italic.woff") format("woff"),
+    url($font__path + "IBMPlex/IBMPlexSans-Italic.ttf") format("truetype"),
+    url($font__path + "IBMPlex/IBMPlexSans-Italic.eot?#iefix")
+      format("embedded-opentype");
+}
+
+@font-face {
+  font-family: "Plex";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF; /* Latin glyphs */
+  src: url($font__path + "IBMPlex/IBMPlexSans-SemiBold.eot");
+  src: local("IBM Plex Sans SemiBold"), local("IBMPlexSans-SemiBold"),
+    url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjQ76AIJsdP3pBmtF8A.woff2)
+      format("woff2"),
+    url($font__path + "IBMPlex/IBMPlexSans-SemiBold.woff2") format("wof2"),
+    url($font__path + "IBMPlex/IBMPlexSans-SemiBold.woff") format("woff"),
+    url($font__path + "IBMPlex/IBMPlexSans-SemiBold.ttf") format("truetype"),
+    url($font__path + "IBMPlex/IBMPlexSans-SemiBold.eot?#iefix")
+      format("embedded-opentype");
+}
+
+@font-face {
+  font-family: "Plex";
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+000-5FF; /* Latin glyphs */
+  src: url($font__path + "IBMPlex/IBMPlexSans-SemiBoldItalic.eot");
+  src: local("IBM Plex Sans SemiBold Italic"),
+    local("IBMPlexSans-SemiBoldItalic"),
+    url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX7KVElMYYaJe8bpLHnCwDKhdTmyIJcePfuJGl18QRY.woff2)
+      format("woff2"),
+    url($font__path + "IBMPlex/IBMPlexSans-SemiBoldItalic.woff2") format("wof2"),
+    url($font__path + "IBMPlex/IBMPlexSans-SemiBoldItalic.woff") format("woff"),
+    url($font__path + "IBMPlex/IBMPlexSans-SemiBoldItalic.ttf")
+      format("truetype"),
+    url($font__path + "IBMPlex/IBMPlexSans-SemiBoldItalic.eot?#iefix")
+      format("embedded-opentype");
+}
+
+@font-face {
+  font-family: "Plex";
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF; /* Latin glyphs */
+  src: url($font__path + "IBMPlex/IBMPlexSans-Bold.eot");
+  src: local("IBM Plex Sans Bold"), local("IBMPlexSans-Bold"),
+    url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX9KVElMYYaJe8bpLHnCwDKjWr7AI9sdP3pBmtF8A.woff2)
+      format("woff2"),
+    url($font__path + "IBMPlex/IBMPlexSans-Bold.woff2") format("wof2"),
+    url($font__path + "IBMPlex/IBMPlexSans-Bold.woff") format("woff"),
+    url($font__path + "IBMPlex/IBMPlexSans-Bold.ttf") format("truetype"),
+    url($font__path + "IBMPlex/IBMPlexSans-Bold.eot?#iefix")
+      format("embedded-opentype");
+}
+
+@font-face {
+  font-family: "Plex";
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+000-5FF; /* Latin glyphs */
+  src: url($font__path + "IBMPlex/IBMPlexSans-BoldItalic.eot");
+  src: local("IBM Plex Sans Bold Italic"), local("IBMPlexSans-BoldItalic"),
+    url(https://fonts.gstatic.com/s/ibmplexsans/v6/zYX7KVElMYYaJe8bpLHnCwDKhdTmrINcePfuJGl18QRY.woff2)
+      format("woff2"),
+    url($font__path + "IBMPlex/IBMPlexSans-BoldItalic.woff2") format("wof2"),
+    url($font__path + "IBMPlex/IBMPlexSans-BoldItalic.woff") format("woff"),
+    url($font__path + "IBMPlex/IBMPlexSans-BoldItalic.ttf") format("truetype"),
+    url($font__path + "IBMPlex/IBMPlexSans-BoldItalic.eot?#iefix")
+      format("embedded-opentype");
+}

@@ -15,13 +15,13 @@
                         </mat-select>
                     </mat-form-field>
 
-                    <ng-template #popularTimesPoi>
+                    <ng-template #popularTimesDot>
                         <mat-progress-bar mode="indeterminate"></mat-progress-bar>
                     </ng-template>
 
 
-                    <app-heatmap *ngIf="popularTimesDot$ | async as popularTimesPoi; else popularTimesPoi"
-                        [data]="popularTimesPoi" [layout]="heatmapLayout" [hour]="hour"></app-heatmap>
+                    <app-heatmap *ngIf="popularTimesDot$ | async as popularTimesDot; else popularTimesDot"
+                        [data]="popularTimesDot" [layout]="heatmapLayout" [hour]="hour"></app-heatmap>
                 </div>
             </div>
         </section>

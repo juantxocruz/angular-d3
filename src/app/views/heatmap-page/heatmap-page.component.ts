@@ -78,18 +78,21 @@ export class HeatmapPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.popularTimesDot$.next(undefined);
     this.heatmapLayout = this.heatmapLayoutService.getLayout('popular_times_heatmap');
+    this.hour = new Date();
     this.heatmapPageService.getPopularTimesApi().subscribe((d) => {
       this.popularPoisOptions = this.filterPopularPoisOptions(d);
-      this.popularTimesWeek$.next(d);
       this.selectedItem = this.popularPoisOptions[0];
+      this.popularTimesWeek$.next(d);
       this.setPopulartTimesDot(this.selectedItem);
+
     });
   }
 
   ngOnChanges(changes: { [propName: string]: SimpleChange }) {
     let changeObj = Object.keys(changes);
-    this.hour = new Date();
+    //this.hour = new Date();
     let y;
   }
 

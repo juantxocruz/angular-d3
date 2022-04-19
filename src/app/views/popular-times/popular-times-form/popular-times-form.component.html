@@ -1,0 +1,170 @@
+<div class="container padding__basic">
+
+
+  <!--   
+  <compass-popular-times-timeline [form]="this.dataTimeline"></compass-popular-times-timeline> -->
+
+  <form [formGroup]="form" target="_blank" class="local-form" id="local_knowledge_form" name="local_knowledge_form"
+    (ngSubmit)="onSubmit()">
+    <div class="container">
+
+      <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutGap="2rem">
+        <div fxFlex="100%">
+          <mat-checkbox formControlName="hidePois">Ocultar pois</mat-checkbox>
+
+        </div>
+      </div>
+
+
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="left">
+        <div fxFlex="14">
+          <p class="margin__bottom-xxs"><strong><small>Día de la semana:</small></strong></p>
+          <mat-form-field>
+            <mat-label>Día de la semana</mat-label>
+            <mat-select formControlName="day">
+              <mat-option value="1">Lunes</mat-option>
+              <mat-option value="2">Martes</mat-option>
+              <mat-option value="3">Miércoles</mat-option>
+              <mat-option value="4">Jueves</mat-option>
+              <mat-option value="5">Viernes</mat-option>
+              <mat-option value="6">Sábado</mat-option>
+              <mat-option value="0">Domingo</mat-option>
+              <mat-option value="7">Toda la semana</mat-option>
+            </mat-select>
+
+          </mat-form-field>
+
+
+        </div>
+
+
+
+
+        <div fxFlex="14">
+          <div class="margin__top--xs container">
+            <p class="margin__bottom-xxs"><strong><small>Desde:</small></strong></p>
+            <mat-form-field appearance="fill">
+              <mat-label>Desde</mat-label>
+              <mat-select formControlName="startHour">
+                <mat-option value="0" [disabled]="this.form.controls.endHour.value <= 0">6</mat-option>
+                <mat-option value="1" [disabled]="this.form.controls.endHour.value <= 1">7</mat-option>
+                <mat-option value="2" [disabled]="this.form.controls.endHour.value <= 2">8</mat-option>
+                <mat-option value="3" [disabled]="this.form.controls.endHour.value <= 3">9</mat-option>
+                <mat-option value="4" [disabled]="this.form.controls.endHour.value <= 4">10</mat-option>
+                <mat-option value="5" [disabled]="this.form.controls.endHour.value <= 5">11</mat-option>
+                <mat-option value="6" [disabled]="this.form.controls.endHour.value <= 6">12</mat-option>
+                <mat-option value="7" [disabled]="this.form.controls.endHour.value <= 7">13</mat-option>
+                <mat-option value="8" [disabled]="this.form.controls.endHour.value <= 8">14</mat-option>
+                <mat-option value="9" [disabled]="this.form.controls.endHour.value <= 9">15</mat-option>
+                <mat-option value="10" [disabled]="this.form.controls.endHour.value <= 10">16</mat-option>
+                <mat-option value="11" [disabled]="this.form.controls.endHour.value <= 11">17</mat-option>
+                <mat-option value="12" [disabled]="this.form.controls.endHour.value <= 12">18</mat-option>
+                <mat-option value="13" [disabled]="this.form.controls.endHour.value <= 13">19</mat-option>
+                <mat-option value="14" [disabled]="this.form.controls.endHour.value <= 14">20</mat-option>
+                <mat-option value="15" [disabled]="this.form.controls.endHour.value <= 15">21</mat-option>
+                <mat-option value="16" [disabled]="this.form.controls.endHour.value <= 16">22</mat-option>
+                <mat-option value="17" [disabled]="this.form.controls.endHour.value <= 17">23</mat-option>
+                <mat-option value="18" [disabled]="this.form.controls.endHour.value <= 18">0</mat-option>
+                <mat-option value="19" [disabled]="this.form.controls.endHour.value <= 19">1</mat-option>
+                <mat-option value="20" [disabled]="this.form.controls.endHour.value <= 20">2</mat-option>
+                <mat-option value="21" [disabled]="this.form.controls.endHour.value <= 21">3</mat-option>
+                <mat-option value="22" [disabled]="this.form.controls.endHour.value <= 22">4</mat-option>
+                <mat-option value="23" [disabled]="this.form.controls.endHour.value <= 23">5</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxFlex="14">
+          <div class="margin__top--xs container">
+            <p class="margin__bottom-xxs"><strong><small>Hasta:</small></strong></p>
+            <mat-form-field appearance="fill">
+              <mat-label>Hasta</mat-label>
+              <mat-select formControlName="endHour">
+                <mat-option value="0" [disabled]="this.form.controls.startHour.value >= 0">6</mat-option>
+                <mat-option value="1" [disabled]="this.form.controls.startHour.value >= 1">7</mat-option>
+                <mat-option value="2" [disabled]="this.form.controls.startHour.value >= 2">8</mat-option>
+                <mat-option value="3" [disabled]="this.form.controls.startHour.value >= 3">9</mat-option>
+                <mat-option value="4" [disabled]="this.form.controls.startHour.value >= 4">10</mat-option>
+                <mat-option value="5" [disabled]="this.form.controls.startHour.value >= 5">11</mat-option>
+                <mat-option value="6" [disabled]="this.form.controls.startHour.value >= 6">12</mat-option>
+                <mat-option value="7" [disabled]="this.form.controls.startHour.value >= 7">13</mat-option>
+                <mat-option value="8" [disabled]="this.form.controls.startHour.value >= 8">14</mat-option>
+                <mat-option value="9" [disabled]="this.form.controls.startHour.value >= 9">15</mat-option>
+                <mat-option value="10" [disabled]="this.form.controls.startHour.value >= 10">16</mat-option>
+                <mat-option value="11" [disabled]="this.form.controls.startHour.value >= 11">17</mat-option>
+                <mat-option value="12" [disabled]="this.form.controls.startHour.value >= 12">18</mat-option>
+                <mat-option value="13" [disabled]="this.form.controls.startHour.value >= 13">19</mat-option>
+                <mat-option value="14" [disabled]="this.form.controls.startHour.value >= 14">20</mat-option>
+                <mat-option value="15" [disabled]="this.form.controls.startHour.value >= 15">21</mat-option>
+                <mat-option value="16" [disabled]="this.form.controls.startHour.value >= 16">22</mat-option>
+                <mat-option value="17" [disabled]="this.form.controls.startHour.value >= 17">23</mat-option>
+                <mat-option value="18" [disabled]="this.form.controls.startHour.value >= 18">0</mat-option>
+                <mat-option value="19" [disabled]="this.form.controls.startHour.value >= 19">1</mat-option>
+                <mat-option value="20" [disabled]="this.form.controls.startHour.value >= 20">2</mat-option>
+                <mat-option value="21" [disabled]="this.form.controls.startHour.value >= 21">3</mat-option>
+                <mat-option value="22" [disabled]="this.form.controls.startHour.value >= 22">4</mat-option>
+                <mat-option value="23" [disabled]="this.form.controls.startHour.value >= 23">5</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          </div>
+        </div>
+
+
+        <div fxFlex="14">
+          <div class="margin__top--xs container">
+            <p class="margin__bottom-xxs"><strong><small>Estrellas:</small></strong></p>
+            <mat-form-field appearance="fill">
+              <mat-label>Desde</mat-label>
+              <mat-select formControlName="rating">
+                <mat-option value="0">0</mat-option>
+                <mat-option value="1">1</mat-option>
+                <mat-option value="2">2</mat-option>
+                <mat-option value="3">3</mat-option>
+                <mat-option value="4">4</mat-option>
+                <mat-option value="5">5</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxFlex="14">
+          <div class="margin__top--xs container">
+            <p class="margin__bottom-xxs"><strong><small>Reseñas:</small></strong></p>
+            <mat-form-field appearance="fill">
+              <mat-label>Hasta</mat-label>
+              <mat-select formControlName="review">
+                <mat-option value="0">0</mat-option>
+                <mat-option>1</mat-option>
+                <mat-option>1</mat-option>
+                <mat-option>1</mat-option>
+                <mat-option>1</mat-option>
+
+              </mat-select>
+            </mat-form-field>
+
+          </div>
+        </div>
+
+
+        <div fxFlex="14">
+          <div class="margin__top--xs container">
+            <p class="margin__bottom-xxs"><strong><small>Animación:</small></strong></p>
+            <mat-form-field appearance="fill">
+              <mat-label>Velocidad</mat-label>
+              <mat-select formControlName="velocity">
+                <mat-option value="5000">1</mat-option>
+                <mat-option value="2000">2</mat-option>
+                <mat-option value="1000">3</mat-option>
+                <mat-option value="500">4</mat-option>
+                <mat-option value="300">5</mat-option>
+                <mat-option value="100">6</mat-option>
+                <mat-option value="20">7</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>

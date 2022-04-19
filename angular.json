@@ -28,10 +28,16 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/leaflet/dist/images/",
+                "output": "assets/images"
+              }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/leaflet/dist/leaflet.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -39,7 +45,12 @@
                 "src/app/sass/"
               ]
             },
-            "scripts": []
+            "scripts": [
+              "./node_modules/d3/dist/d3.min.js",
+              "./node_modules/leaflet/dist/leaflet.js",
+              "./node_modules/heatmap.js/build/heatmap.js",
+              "./node_modules/heatmap.js/plugins/leaflet-heatmap/leaflet-heatmap.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -102,7 +113,12 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/leaflet/dist/images/",
+                "output": "./assets/"
+              }
             ],
             "styles": [
               "src/styles.scss",

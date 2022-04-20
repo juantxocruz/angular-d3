@@ -13,6 +13,7 @@ export class PopularTimesComponent implements OnInit {
   sevenDaysData$ = this.popularTimesApiService.sevenDaysData$;
   poisData: any;
   sevenDaysData: any;
+  weekDaysData: any;
   sevenDaysForm: any;
 
 
@@ -24,12 +25,25 @@ export class PopularTimesComponent implements OnInit {
   ngOnInit(): void {
     this.popularTimesApiService.getPopularTimesData().subscribe((data) => {
       this.poisData = this.popularTimesReshapeService.getGoogleDataPois(data);
-      this.sevenDaysData = this.popularTimesReshapeService.reshapeData(this.poisData); // 7 days, 24 hours data
+      this.sevenDaysData = this.popularTimesReshapeService.reshapeHoursData(this.poisData); // 7 days, 24 hours data
       this.sevenDaysData$.next(this.sevenDaysData);
     });
 
     this.popularTimesFormService.getForm().subscribe(f => {
       this.sevenDaysForm = f;
+      // map data for days (hours)
+      if (this.sevenDaysForm.timeline === 0) {
+
+        let x = 
+
+      }
+
+      // map data for week (days)
+      if (this.sevenDaysForm.timeline === 1) {
+        this.weekDaysData = this.popularTimesReshapeService.reshapeDaysData(this.sevenDaysData, this.sevenDaysForm);
+
+        let r;
+      }
     })
 
   }

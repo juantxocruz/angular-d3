@@ -6,7 +6,6 @@ import { catchError, map, filter } from 'rxjs/operators';
 import { Observable, of, forkJoin } from 'rxjs';
 
 
-
 @Injectable({ providedIn: 'root' })
 export class PopularTimesApiService {
 

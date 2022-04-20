@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpErrorResponse, HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Router } from '@angular/router';
-import { catchError, map, filter } from 'rxjs/operators';
-import { Observable, of, forkJoin } from 'rxjs';
-import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
+
 
 @Injectable({ providedIn: 'root' })
 export class PopularTimesReshapeService {
+
+    public heatMapData$: BehaviorSubject<any> = new BehaviorSubject(undefined);
 
     public choices_days = [[0, "Sunday"], [1, "Monday"], [2, "Tuesday"], [3, "Wednesday"], [4, "Thursday"], [5, "Friday"], [6, "Saturday"]];
 
@@ -58,7 +58,15 @@ export class PopularTimesReshapeService {
 
     constructor(public http: HttpClient, private router: Router) { }
 
+    // final data for the timeline and heatmap
+    public getHeatMapData() {
+        return this.heatMapData$.asObservable();
+    }
+    public setHeatMapData(d) {
+        this.heatMapData$.next(d);
+    }
 
+    // only Google pois
     getGoogleDataPois(data: any) {
         let result = data.filter((d: any) => {
             if (d.geometry && d.geometry.coordinates && d.geometry.coordinates[0] && d.geometry.coordinates[1] && d.properties && d.properties.goo && d.properties.goo.popular_time && d.properties.goo.popular_time.days) {
@@ -134,7 +142,8 @@ export class PopularTimesReshapeService {
         return configuration.day_window_start_int === 0 && configuration.day_window_end_int === 6 ? 7 : configuration.day_window_start_int;
     }
 
-    reshapeData(data: any) {
+
+    getSevenDaysData(data: any) {
         // return only lat, lng and days
         const googleDays = data.map((d: any) => {
             return {
@@ -155,6 +164,98 @@ export class PopularTimesReshapeService {
         return daysData; // all 7 days week [0 Sunday - 6 Saturday] data by hours [0-23] and pois [lat, lgn, count]
 
     }
+
+    reshapeHeatMapData(sevenDaysData: any, sevenDaysForm: any) {
+
+        // slice days hours for seven days
+        let sevenDaysByHoursData = sevenDaysData.map(day => {
+            return day.slice(+sevenDaysForm.startHour, +sevenDaysForm.endHour + 1)
+        });
+
+        if (sevenDaysForm.timeline === 0) {
+
+            //let heatmapData: { max: number; min:number; data: Array<any> };
+            // return only the selected day
+            let heatMapData = sevenDaysByHoursData[sevenDaysForm.day];
+            this.heatMapData$.next(heatMapData);
+            return false;
+
+
+        }
+
+        // map data for week (days)
+        if (sevenDaysForm.timeline === 1) {
+            let weekDaysData = sevenDaysByHoursData.slice(0, -1); // removes last element on array (all week data sum)
+            // now we have seven days data starting on Sunday (0).
+            let w = sevenDaysByHoursData;
+
+
+            let r;
+        }
+
+
+    };
+
+
+    // not in use here
+
+    /*
+    getDDay = (day: string): Array<any> => {
+    
+        const result = this.choices_days.filter((d) => {
+            return d[0] === Number(day);
+        });
+        return result.length > 0 ? result[0] : this.choices_days[0]; // [0, "Sunday"];
+    
+    }
+    */
+
+    /*
+    getNextDay = (day: any) => {
+    
+     const ix = Number(day) === 6 ? 0 : (Number(day) + 1);
+    
+     const result = this.choices_days.filter((d) => {
+         return d[0] === ix;
+     });
+     return result.length > 0 ? result[0] : this.choices_days[this.choices_days.length - 1]; // [6, "Saturday"];
+    
+    }
+    */
+
+    /*
+    getMinHour = (hour: string) => {
+     let result;
+     if (hour) {
+         result = this.choices_hours.filter((d) => {
+             return d[2] === Number(hour);
+         })[0];
+     } else {
+         result = this.choices_hours[0];// [0, "6AM", 6]
+     }
+     return result;
+    
+    }
+    */
+
+    /*
+    getMaxHour = (hour: string) => {
+     let result;
+     if (hour) {
+         result = this.choices_hours.filter((d) => {
+             return d[2] === Number(hour);
+         })[0];
+     } else {
+         result = this.choices_hours[this.choices_hours.length - 1]; //   [23, "5AM", 5]
+     }
+     return result;
+    
+    }
+    */
+
+
+
+
 
 
 }

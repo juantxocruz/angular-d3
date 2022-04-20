@@ -14,8 +14,10 @@ import { PopularTimesMapService } from '../popular-times-map/popular-times-map.s
 export class PopularTimesTimelineComponent implements OnInit {
 
 
-  @Input() sevenDaysData: any;
+  @Input() heatMapData: any;
   @Input() form: any = {
+    timeline: 0,  // hours or days
+    days: null, // hours or days
     day: 0,
     startHour: 0,
     endHour: 23,
@@ -87,7 +89,7 @@ export class PopularTimesTimelineComponent implements OnInit {
 
   public setFrame(frame: number) {
     this.currentFrame = frame;
-    const snapshot = this.data[this.form.day][frame];
+    const snapshot = this.data[frame];
 
     this.heatmapData3 = {
       max: 100,
@@ -110,7 +112,7 @@ export class PopularTimesTimelineComponent implements OnInit {
       </div>`;
 
     //Text of the last point
-    timePoints[this.data[this.form.day].length - 1].innerHTML =
+    timePoints[this.data.length - 1].innerHTML =
       `<div style="margin-top:4px;color:#a7a7a7;font-size:11px">
             ${this.choices_hours[+this.form.endHour][1]}
       </div>`;
@@ -135,7 +137,7 @@ export class PopularTimesTimelineComponent implements OnInit {
   public setAnimationData(data: any) {
     this.isPlaying = false;
     this.stop();
-    this.data[this.form.day] = data;
+    this.data = data;
     this.init();
   };
 
@@ -143,7 +145,7 @@ export class PopularTimesTimelineComponent implements OnInit {
 
   public play() {
     // Only play when Live/ Now mode not enabled
-    const dataLen = this.data[this.form.day].length;
+    const dataLen = this.data.length;
 
     this.playButton.innerText = 'pause';
     this.interval = setInterval(() => {
@@ -160,7 +162,7 @@ export class PopularTimesTimelineComponent implements OnInit {
 
 
   init() {
-    const dataLen = this.data[this.form.day].length;
+    const dataLen = this.data.length;
     let frame;
     this.wrapperEl = document.querySelector('.timeline-wrapper');
 
@@ -185,7 +187,7 @@ export class PopularTimesTimelineComponent implements OnInit {
     events.innerHTML = '<div class="line"></div>';
 
 
-    for (let i = 0; i < this.data[this.form.day].length; i++) {
+    for (let i = 0; i < this.data.length; i++) {
 
       // Generate timeline points
 
@@ -235,16 +237,11 @@ export class PopularTimesTimelineComponent implements OnInit {
     // Data points defined as an array of LatLng objects
     // https://developers.google.com/maps/documentation/javascript/heatmaplayer?hl=nl
 
-    const sevenDaysData = this.sevenDaysData; // 7 days, 24 hours data
 
-    const heatmapData2 = sevenDaysData.map(day => {
-      return day.slice(+this.form.startHour, +this.form.endHour + 1)
-    })//this.sliceHoursfromData(timeWindow, sevenDaysData);
-    //let heatmapData: { max: number; min:number; data: Array<any> };
-    this.data = heatmapData2;
-    const dayIndex = +this.form.day;
+    this.data = this.heatMapData;
 
-    if (sevenDaysData) {
+
+    if (this.data) {
 
       // Set map position and zoom
       if (setView == true) {
@@ -265,7 +262,7 @@ export class PopularTimesTimelineComponent implements OnInit {
 
       const heatmapData = {
         max: 100,
-        data: heatmapData2[dayIndex][0]
+        data: this.heatMapData[0]
       };
 
       this.heatmapLayer = new HeatmapOverlay(this.heatmap_config);
@@ -296,22 +293,18 @@ export class PopularTimesTimelineComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.drawHeatMap();
-    let i = 0;
+    //this.drawHeatMap();
   }
 
   ngOnChanges(changes: SimpleChanges) {
     let changeObj: string[] = Object.keys(changes);
-    if (this.isFomChange(changeObj)) {
-      this.stop();
-      this.drawHeatMap();
-    }
-
-
+    this.stop();
+    this.drawHeatMap();
+    if (this.isFomChange(changeObj)) { return false; } // in case you only need form change
 
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     if (this.map.box && this.map.box.hasLayer(this.heatmapLayer)) {
       this.map.box.removeLayer(this.heatmapLayer)
     }

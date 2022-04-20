@@ -102,7 +102,7 @@ export class HeatmapComponent implements OnInit {
 
   constructor(private dimensionsService: DimensionsService) { }
 
-  reshapedata = (): void => {
+  reshapeHoursData = (): void => {
 
     this.rawData = this.data.sort((a: WeekDot, b: WeekDot) => d3.ascending(a.x, b.x));
     this.maxVal = d3.max(this.rawData, (d: WeekDot) => d.value);
@@ -483,7 +483,7 @@ export class HeatmapComponent implements OnInit {
       }, this.resize_delay);
     });
 
-    this.reshapedata();
+    this.reshapeHoursData();
 
 
   }
@@ -546,7 +546,7 @@ export class HeatmapComponent implements OnInit {
     if (changes["data"] && changeObj.length === 1) {
       clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
-        this.reshapedata();
+        this.reshapeHoursData();
       }, this.resize_delay / 4);
 
     }

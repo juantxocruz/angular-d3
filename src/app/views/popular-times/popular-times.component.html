@@ -18,13 +18,12 @@
             <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutGap="2rem">
                 <div fxFlex="100%">
 
-                    <app-popular-times-timeline
-                        *ngIf="sevenDaysData$ | async as sevenDaysData; else loadingSevenDaysData"
-                        [sevenDaysData]="sevenDaysData" [form]="sevenDaysForm"></app-popular-times-timeline>
+                    <app-popular-times-timeline *ngIf="heatMapData$ | async as heatMapData; else loadingHeatMapData"
+                        [heatMapData]="heatMapData" [form]="sevenDaysForm"></app-popular-times-timeline>
 
                     <div class="heatmap-wrapper">
 
-                        <ng-template #loadingSevenDaysData>
+                        <ng-template #loadingHeatMapData>
                             <mat-progress-bar mode="indeterminate"></mat-progress-bar>
                         </ng-template>
                         <app-popular-times-map></app-popular-times-map>

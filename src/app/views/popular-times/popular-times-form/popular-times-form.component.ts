@@ -40,7 +40,9 @@ export class PopularTimesFormComponent {
     private popularTimesFormService: PopularTimesFormService
   ) {
     this.form = new FormGroup({
-      day: new FormControl('0'),
+      timeline: new FormControl('0'),
+      day: new FormControl('1'), // by hours
+      days: new FormControl(['1']), // by days, multiple selection
       startHour: new FormControl('0'),
       endHour: new FormControl('23'),
       hidePois: new FormControl(true),
@@ -51,81 +53,62 @@ export class PopularTimesFormComponent {
 
 
 
-    this.form.valueChanges.subscribe(() => {
+    this.form.valueChanges.subscribe((f) => {
       this.dataTimeline = {
-        day: +this.form.controls.day.value,
-        startHour: +this.form.controls.startHour.value,
-        endHour: +this.form.controls.endHour.value,
-        speed: +this.form.controls.velocity.value,
+        timeline: +f.timeline,
+        day: +f.day,
+        days: f.days,
+        startHour: +f.startHour,
+        endHour: +f.endHour,
+        speed: +f.velocity,
       }
       this.popularTimesFormService.setForm(this.dataTimeline);
+
     });
 
-    this.form.controls.hidePois.valueChanges.subscribe(() => {
+    this.form.controls.timeline.valueChanges.subscribe((v) => {
+      if (v === "1") { // by days, select day
+        let val = this.form.controls.day.value === "7" ? "1" : this.form.controls.day.value;
+        this.form.controls.days.setValue([val]);
+        return false;
+      }
+      if (v === "0") { // by days, select day
+        this.form.controls.day.setValue(this.form.controls.days.value[0]);
+        return false;
+      }
+    });
+
+    this.form.controls.days.valueChanges.subscribe((v) => {
+      if (v.length < 2) {
+        this.form.controls.days.setValue(['1', '2', '3', '4', '5', '6', '0'], { emitEvent: false });
+        return false;
+      }
+
+      let result = [];
+      let start = +v[0];
+      let end = +v[v.length - 1] === 0 ? 7 : +v[v.length - 1];
+      let blanks = end - start;
+
+      for (var i = 0; i <= blanks; i++) {
+        if ((+v[0] + i) === 7) { result.push('0') }
+        else {
+          result.push((+v[0] + i).toString());
+        };
+
+      }
+
+      this.form.controls.days.setValue(result, { emitEvent: false });
+      return false;
 
     })
 
-  }
-
-
-  getDDay = (day: string): Array<any> => {
-
-    const result = this.choices_days.filter((d) => {
-      return d[0] === Number(day);
-    });
-    return result.length > 0 ? result[0] : this.choices_days[0]; // [0, "Sunday"];
+    this.form.controls.startHour.valueChanges.subscribe((s) => {
+      return false;
+    })
+    this.form.controls.hidePois.valueChanges.subscribe(() => {
+    })
 
   }
-
-  getNextDay = (day: any) => {
-
-    const ix = Number(day) === 6 ? 0 : (Number(day) + 1);
-
-    const result = this.choices_days.filter((d) => {
-      return d[0] === ix;
-    });
-    return result.length > 0 ? result[0] : this.choices_days[this.choices_days.length - 1]; // [6, "Saturday"];
-
-  }
-
-  getMinHour = (hour: string) => {
-    let result;
-    if (hour) {
-      result = this.choices_hours.filter((d) => {
-        return d[2] === Number(hour);
-      })[0];
-    } else {
-      result = this.choices_hours[0];// [0, "6AM", 6]
-    }
-    return result;
-
-  }
-  getMaxHour = (hour: string) => {
-    let result;
-    if (hour) {
-      result = this.choices_hours.filter((d) => {
-        return d[2] === Number(hour);
-      })[0];
-    } else {
-      result = this.choices_hours[this.choices_hours.length - 1]; //   [23, "5AM", 5]
-    }
-    return result;
-
-  }
-
-
-
-
-  filterPois() {
-    this.filteredPois = this.pois;
-    if (this.form.controls.rating.value != undefined) {
-      this.filteredPois.filter(poi => {
-        return Math.round(+poi.properties.rating) == +this.form.controls.rating.value
-      })
-    }
-  }
-
-
 
   onSubmit() {
     console.log(this.form)

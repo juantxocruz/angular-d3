@@ -80,6 +80,8 @@ export class PopularTimesFormComponent {
 
     this.form.controls.days.valueChanges.subscribe((v) => {
       if (v.length < 2) {
+        // the relationship between data array and the week day is on the form control day array.
+        // zero is Sunday, but from now, it will be at last position of the data array
         this.form.controls.days.setValue(['1', '2', '3', '4', '5', '6', '0'], { emitEvent: false });
         return false;
       }

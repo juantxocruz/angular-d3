@@ -10,7 +10,7 @@ import { Observable, of, forkJoin } from 'rxjs';
 export class PopularTimesApiService {
 
     private popularTimesUrl = 'assets/data/samples_popular_times.json';
-    public sevenDaysData$: BehaviorSubject<any> = new BehaviorSubject(undefined);
+    public eightDaysData$: BehaviorSubject<any> = new BehaviorSubject(undefined);
     globalPois: any;
     uniquePois: any;
     constructor(public http: HttpClient, private router: Router) { }
@@ -51,17 +51,17 @@ export class PopularTimesApiService {
                 });
                 this.uniquePois = this.filterUniqueIds(this.globalPois); // removes duplicates
                 // original data with geometry and google data
-                //this.sevenDaysData$.next(data);
+                //this.eightDaysData$.next(data);
                 return this.uniquePois;
             })
         );
     }
 
 
-    public getSevenDays() {
-        return this.sevenDaysData$.asObservable();
+    public getEightDays() {
+        return this.eightDaysData$.asObservable();
     }
-    public setSevenDays(d) {
-        this.sevenDaysData$.next(d);
+    public setEightDays(d) {
+        this.eightDaysData$.next(d);
     }
 }

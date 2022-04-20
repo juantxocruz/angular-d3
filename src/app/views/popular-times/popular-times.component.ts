@@ -10,12 +10,12 @@ import { PopularTimesFormService } from './popular-times-form/popular-times-form
   styleUrls: ['./popular-times.component.scss']
 })
 export class PopularTimesComponent implements OnInit {
-  sevenDaysData$ = this.popularTimesApiService.sevenDaysData$;
+  eightDaysData$ = this.popularTimesApiService.eightDaysData$;
   heatMapData$ = this.popularTimesReshapeService.heatMapData$;
   poisData: any;
-  sevenDaysData: any;
+  eightDaysData: any;
   weekDaysData: any;
-  sevenDaysForm: any;
+  eightDaysForm: any;
 
 
   constructor(
@@ -26,17 +26,20 @@ export class PopularTimesComponent implements OnInit {
   ngOnInit(): void {
     this.popularTimesApiService.getPopularTimesData().subscribe((data) => {
       this.poisData = this.popularTimesReshapeService.getGoogleDataPois(data);
-      this.sevenDaysData = this.popularTimesReshapeService.getSevenDaysData(this.poisData); // 7 days, 24 hours data + all week data sum
-      this.sevenDaysData$.next(this.sevenDaysData); // seven days, 24 hours
-      this.heatMapData$.next(this.sevenDaysData[1]); // Monday, 24 hours
+      this.eightDaysData = this.popularTimesReshapeService.getEightDaysData(this.poisData); // 7 days, 24 hours data + all week data sum
+      this.eightDaysData$.next(this.eightDaysData); // seven days, 24 hours
+      this.heatMapData$.next(this.eightDaysData[1]); // Monday, 24 hours
 
     });
 
     //fires ngOnChanges on timeline component
     this.popularTimesFormService.getForm().subscribe(f => {
-      this.sevenDaysForm = f;
+      this.eightDaysForm = f;
       // map data for days (hours)
-      this.popularTimesReshapeService.reshapeHeatMapData(this.sevenDaysData, this.sevenDaysForm);
+      if (this.eightDaysData && this.eightDaysForm) {
+        this.popularTimesReshapeService.reshapeHeatMapData(this.eightDaysData, this.eightDaysForm);
+      }
+
     });
 
   }

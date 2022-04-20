@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpErrorResponse, HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { IfStmt } from '@angular/compiler';
 
 
 @Injectable({ providedIn: 'root' })
@@ -143,7 +144,7 @@ export class PopularTimesReshapeService {
     }
 
 
-    getSevenDaysData(data: any) {
+    getEightDaysData(data: any) {
         // return only lat, lng and days
         const googleDays = data.map((d: any) => {
             return {
@@ -165,18 +166,66 @@ export class PopularTimesReshapeService {
 
     }
 
-    reshapeHeatMapData(sevenDaysData: any, sevenDaysForm: any) {
+    getFormDaysByHoursData(sevenDaysByHoursData, eightDaysForm) {
+        let result: any = [];
+        let days = eightDaysForm.days;
 
-        // slice days hours for seven days
-        let sevenDaysByHoursData = sevenDaysData.map(day => {
-            return day.slice(+sevenDaysForm.startHour, +sevenDaysForm.endHour + 1)
+        // be careful
+        // now data is aligned with the eightDaysForm
+        // zero is Sunday, but from now, it will be at last position of the data array
+        // so, now Sunday is the last element on the array
+        // the relationship between data array and the week day is on the eightDaysForm array.
+
+        for (let i = 0; i < days.length; i++) {
+            result.push(sevenDaysByHoursData[days[i]])
+        }
+        return result;
+    }
+
+    // timeline 1: by days, sum hours by day
+    // new array:  days elements with the sum of each poi hours
+    // [ [MONDAY [POIS hours sum]], [TUESDAY [POIS hours sum ]] ]
+    sumHoursByDay(days): [][] {
+        let result = [];
+        days.forEach((day: any, index: number) => {
+            result.push([]);
+            day.forEach((hour, j) => {
+                hour.forEach((poi, k) => {
+                    if (j === 0) {
+                        result[index].push(poi);
+                    } else {
+                        result[index][k]['count'] += poi.count;
+                    }
+                });
+            });
+        });
+        return result;
+    }
+    getMediaHoursByDay(days: [][], form: any) {
+        let numberOfHours = +(+form.endHour) - (+form.startHour) + 1;
+
+        return days.map((day: any[]) => {
+            day.map((poi) => {
+                poi.count = Math.round(poi.count / numberOfHours);
+                return poi;
+            })
+            return day;
         });
 
-        if (sevenDaysForm.timeline === 0) {
+    }
+
+    reshapeHeatMapData(eightDaysData: any, eightDaysForm: any) {
+
+        // slice days hours for seven days
+        let eightDaysByHoursData = eightDaysData.map(day => {
+            return day.slice(+eightDaysForm.startHour, +eightDaysForm.endHour + 1)
+        });
+
+        if (eightDaysForm.timeline === 0) {
 
             //let heatmapData: { max: number; min:number; data: Array<any> };
             // return only the selected day
-            let heatMapData = sevenDaysByHoursData[sevenDaysForm.day];
+            let heatMapData = eightDaysByHoursData[eightDaysForm.day];
             this.heatMapData$.next(heatMapData);
             return false;
 
@@ -184,11 +233,15 @@ export class PopularTimesReshapeService {
         }
 
         // map data for week (days)
-        if (sevenDaysForm.timeline === 1) {
-            let weekDaysData = sevenDaysByHoursData.slice(0, -1); // removes last element on array (all week data sum)
-            // now we have seven days data starting on Sunday (0).
-            let w = sevenDaysByHoursData;
+        if (eightDaysForm.timeline === 1) {
+            let sevenDaysByHoursData = eightDaysByHoursData.slice(0, -1); // removes last element on array (all week data sum)
+            // form here zero is not Sunday,  it will be at last position of the data array
+            // the relationship between data array and the week day is on the eightDaysForm array.
+            let formDaysByHoursData = this.getFormDaysByHoursData(sevenDaysByHoursData, eightDaysForm);
+            let hoursByDay = this.sumHoursByDay(formDaysByHoursData);
+            let mediaHoursByDay = this.getMediaHoursByDay(hoursByDay, eightDaysForm);
 
+            // WE ARE HERE, now pass the data to heatMap
 
             let r;
         }

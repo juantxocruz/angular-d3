@@ -12,9 +12,7 @@ import { PopularTimesFormService } from './popular-times-form/popular-times-form
 export class PopularTimesComponent implements OnInit {
   eightDaysData$ = this.popularTimesApiService.eightDaysData$;
   heatMapData$ = this.popularTimesReshapeService.heatMapData$;
-  poisData: any;
   eightDaysData: any;
-  weekDaysData: any;
   eightDaysForm: any;
 
 
@@ -25,8 +23,8 @@ export class PopularTimesComponent implements OnInit {
 
   ngOnInit(): void {
     this.popularTimesApiService.getPopularTimesData().subscribe((data) => {
-      this.poisData = this.popularTimesReshapeService.getGoogleDataPois(data);
-      this.eightDaysData = this.popularTimesReshapeService.getEightDaysData(this.poisData); // 7 days, 24 hours data + all week data sum
+      let poisData = this.popularTimesReshapeService.getGoogleDataPois(data);
+      this.eightDaysData = this.popularTimesReshapeService.getEightDaysData(poisData); // 7 days, 24 hours data + all week data sum
       this.eightDaysData$.next(this.eightDaysData); // seven days, 24 hours
       this.heatMapData$.next(this.eightDaysData[1]); // Monday, 24 hours
 

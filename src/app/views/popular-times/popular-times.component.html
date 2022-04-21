@@ -9,6 +9,7 @@
                     <h4>Seleccione un punto de interés</h4>
 
                     <popular-times-form></popular-times-form>
+
                 </div>
             </div>
         </section>
@@ -18,39 +19,23 @@
             <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutGap="2rem">
                 <div fxFlex="100%">
 
+                    <ng-template #loadingHeatMapData>
+                        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                    </ng-template>
+
                     <app-popular-times-timeline *ngIf="heatMapData$ | async as heatMapData; else loadingHeatMapData"
                         [heatMapData]="heatMapData" [form]="eightDaysForm"></app-popular-times-timeline>
 
                     <div class="heatmap-wrapper">
-
-                        <ng-template #loadingHeatMapData>
-                            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-                        </ng-template>
                         <app-popular-times-map></app-popular-times-map>
-
-
                     </div>
                 </div>
+
             </div>
 
         </section>
 
 
-
-        <section>
-            <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutGap="2rem">
-                <div fxFlex="50%">
-                    <p>New</p>
-
-                    50%
-                </div>
-                <div fxFlex="50%">
-                    <p>heatmap-page works!</p>
-
-                    50%
-                </div>
-            </div>
-        </section>
 
         <!--       <section>
             <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutGap="2rem">

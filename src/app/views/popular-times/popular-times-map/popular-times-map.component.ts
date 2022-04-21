@@ -1,7 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { icon, Marker } from 'leaflet';
 import * as L from 'leaflet';
-import HeatmapOverlay from 'leaflet-heatmap';
 import { PopularTimesMapService } from './popular-times-map.service';
 
 @Component({
@@ -54,10 +52,6 @@ export class PopularTimesMapComponent implements OnInit, AfterViewInit {
 
   };
 
-
-
-
-
   venuemarkers: L.LayerGroup = new L.LayerGroup(); //new Array();
   marker = L.marker(this.mapSetUp.center, this.mapSetUp.marker.icon);
 
@@ -87,10 +81,9 @@ export class PopularTimesMapComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.map_leaflet = this.popularTimesMapService.initMap(this.mapSetUp);
-
     this.drawMap();
     this.popularTimesMapService.setMap(this.map_leaflet);
-    // this.drawHeatMap();
+
   }
 
 }

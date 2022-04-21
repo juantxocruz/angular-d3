@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpErrorResponse, HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Router } from '@angular/router';
-import { catchError, map, filter } from 'rxjs/operators';
-import { Observable, of, forkJoin } from 'rxjs';
 import * as L from 'leaflet';
 
 

@@ -87,6 +87,8 @@ export class PopularTimesTimelineComponent implements OnInit {
 
   }
 
+
+  // magic fuction
   public setFrame(frame: number) {
     this.currentFrame = frame;
     const snapshot = this.data[frame];
@@ -146,32 +148,22 @@ export class PopularTimesTimelineComponent implements OnInit {
       //Text of the pointer
       timePoints[frame].innerHTML =
         `<div style="margin-top:4px; color:#7367F0;font-size:11px">
-            ${this.choices_days[this.setDayFrame(+this.form.days[0], frame)][2]}
+            ${this.choices_days[this.setHtmlDayFrame(+this.form.days[0], frame)][2]}
       </div>`;
-
-
 
     }
 
   };
 
-  //  ${this.choices_days[+this.form.days[0] + frame][1]}
-
-  setDayFrame(day, frame) {
-
+  // Because Sunday is 0 value on the days array and frame is on  position 6
+  // When choice_days position is higher than 6 (7), we turn back position to 0 (Sunday).
+  setHtmlDayFrame(day: number, frame: number): number {
     if ((day + frame) > 6) {
       return 0;
     }
     return day + frame;
-
-    /*
-    if (+this.form.days[this.form.days.length - 1] === 0) { // sunday
-      frame = -this.form.days[0]
-    } else {
-      frame = 0
-    }
-    */
   }
+
   public setAnimationSpeed(speed: number) {
     this.isPlaying = false;
     this.stop();
@@ -179,12 +171,13 @@ export class PopularTimesTimelineComponent implements OnInit {
   }
 
 
+  // not in use from now
   /*
     public setAnimationData(data: any) {
       this.isPlaying = false;
       this.stop();
       this.data = data;
-      this.init();
+      this.initTimeline();
     };
   */
 
@@ -207,7 +200,7 @@ export class PopularTimesTimelineComponent implements OnInit {
 
 
 
-  init() {
+  initTimeline() {
     const dataLen = this.data.length;
     let frame;
     this.wrapperEl = document.querySelector('.timeline-wrapper');
@@ -254,6 +247,7 @@ export class PopularTimesTimelineComponent implements OnInit {
 
     this.wrapperEl.appendChild(events);
 
+    // HOURS
     if (+this.form.timeline === 0) {
       // check if time_local_index is in user set hour_min/ max range.
       if (0 >= +this.form.startHour &&
@@ -270,17 +264,13 @@ export class PopularTimesTimelineComponent implements OnInit {
         frame = +this.form.startHour - +this.form.startHour;
       }
     }
-
+    // DAYS
     if (+this.form.timeline === 1) {
       frame = 0;
     }
 
-
     this.setFrame(frame);
-
-
   };
-
 
 
   drawHeatMap(setView = true) {
@@ -324,26 +314,23 @@ export class PopularTimesTimelineComponent implements OnInit {
 
       // Add leaflet markers (if needeed)
       //this.addVenueMarkers(this.pois);
-      //this.addVenueMarkers(this.pois);
       // Update map location and zoom in url params on map drag and zoom
 
       // animate
-      this.init();
-
+      this.initTimeline();
     }
-
   }
-
 
   isFomChange(check: string[]): boolean {
     if (check.length === 1 && check.indexOf("form") != -1) {
       return true;
     }
     return false;
-  }
+  } s
 
 
   ngOnInit(): void {
+    // don´t draw HeatMap here
     //this.drawHeatMap();
   }
 
@@ -361,6 +348,5 @@ export class PopularTimesTimelineComponent implements OnInit {
     }
     this.stop();
   }
-
 
 }

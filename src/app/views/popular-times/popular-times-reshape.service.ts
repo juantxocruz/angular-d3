@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpErrorResponse, HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Router } from '@angular/router';
-import { IfStmt } from '@angular/compiler';
+
 
 
 @Injectable({ providedIn: 'root' })
@@ -39,6 +39,7 @@ export class PopularTimesReshapeService {
         [23, "5AM", 5]
     ];
 
+    /*
     public dayTimeWindow = {
         "day_window": "Monday 6AM until Tuesday 5AM",
         "day_window_end_int": 1,
@@ -55,7 +56,7 @@ export class PopularTimesReshapeService {
         "time_window_start_12h": "6AM",
         "time_window_start_ix": 0
     };
-
+*/
 
     constructor(public http: HttpClient, private router: Router) { }
 

@@ -128,6 +128,7 @@ export class PopularTimesTimelineComponent implements OnInit {
       </div>`;
 
     }
+    // days
     if (+this.form.timeline === 1) {
       //Text of the first point
       timePoints[0].innerHTML =
@@ -161,14 +162,14 @@ export class PopularTimesTimelineComponent implements OnInit {
   }
 
 
-
-  public setAnimationData(data: any) {
-    this.isPlaying = false;
-    this.stop();
-    this.data = data;
-    this.init();
-  };
-
+  /*
+    public setAnimationData(data: any) {
+      this.isPlaying = false;
+      this.stop();
+      this.data = data;
+      this.init();
+    };
+  */
 
 
   public play() {
@@ -216,12 +217,10 @@ export class PopularTimesTimelineComponent implements OnInit {
 
 
     for (let i = 0; i < this.data.length; i++) {
-
       // Generate timeline points
-
       const xOffset = 100 / (dataLen - 1) * i;
-
       const ev = document.createElement('div');
+
       ev.className = 'time-point';
       ev.style.left = xOffset + '%';
       ev.onclick = (function (i: number) {
@@ -232,26 +231,33 @@ export class PopularTimesTimelineComponent implements OnInit {
         }.bind(this);
       }.bind(this))(i);
 
-
       events.appendChild(ev);
 
     }
+
     this.wrapperEl.appendChild(events);
 
-    // check if time_local_index is in user set hour_min/ max range.
-    if (0 >= +this.form.startHour &&
-      0 <= +this.form.endHour) {
-      // local venue time is within hour_min/max range so setting the animation frame to venue current local hour.
-      // The local hour index needs to be subtracted with the time window start index, since the local hour index is based
-      // on an array from 0 to 23.
-      frame = 0 - +this.form.startHour;
-    } else {
-      // local vanue time is outside range, so setting the frame to the hour_min value
-      // The local hour index needs to be subtracted with the time window start index, since the local hour index is based
-      // on an array from 0 to 23.
+    if (+this.form.timeline === 0) {
+      // check if time_local_index is in user set hour_min/ max range.
+      if (0 >= +this.form.startHour &&
+        0 <= +this.form.endHour) {
+        // local venue time is within hour_min/max range so setting the animation frame to venue current local hour.
+        // The local hour index needs to be subtracted with the time window start index, since the local hour index is based
+        // on an array from 0 to 23.
+        frame = 0 - +this.form.startHour;
+      } else {
+        // local vanue time is outside range, so setting the frame to the hour_min value
+        // The local hour index needs to be subtracted with the time window start index, since the local hour index is based
+        // on an array from 0 to 23.
 
-      frame = +this.form.startHour - +this.form.startHour;
+        frame = +this.form.startHour - +this.form.startHour;
+      }
     }
+
+    if (+this.form.timeline === 1) {
+      frame = 0
+    }
+
 
     this.setFrame(frame);
 

@@ -10,7 +10,7 @@ export class PopularTimesReshapeService {
 
     public heatMapData$: BehaviorSubject<any> = new BehaviorSubject(undefined);
 
-    public choices_days = [[0, "Sunday"], [1, "Monday"], [2, "Tuesday"], [3, "Wednesday"], [4, "Thursday"], [5, "Friday"], [6, "Saturday"]];
+    public choices_days = [[0, "Sunday", "D"], [1, "Monday", "L"], [2, "Tuesday", "M"], [3, "Wednesday", "X"], [4, "Thursday", "J"], [5, "Friday", "V"], [6, "Saturday", "S"]];
 
     public choices_hours = [
         [0, "6AM", 6],

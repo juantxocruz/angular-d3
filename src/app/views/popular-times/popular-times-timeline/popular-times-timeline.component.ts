@@ -133,20 +133,20 @@ export class PopularTimesTimelineComponent implements OnInit {
       //Text of the first point
       timePoints[0].innerHTML =
         `<div style="margin-top:4px; color:#a7a7a7;font-size:11px">
-            ${this.choices_days[+this.form.days[0]][1]}
+            ${this.choices_days[+this.form.days[0]][2]}
       </div>`;
 
       //Text of the last point
       timePoints[this.data.length - 1].innerHTML =
         `<div style="margin-top:4px;color:#a7a7a7;font-size:11px">
-              ${this.choices_days[+this.form.days[this.form.days.length - 1]][1]}
+              ${this.choices_days[+this.form.days[this.form.days.length - 1]][2]}
       </div>`;
 
       timePoints[frame].classList.add('active');
       //Text of the pointer
       timePoints[frame].innerHTML =
         `<div style="margin-top:4px; color:#7367F0;font-size:11px">
-            ${this.choices_days[+this.form.days[0] + frame][1]}
+            ${this.choices_days[this.setDayFrame(+this.form.days[0], frame)][2]}
       </div>`;
 
 
@@ -155,6 +155,23 @@ export class PopularTimesTimelineComponent implements OnInit {
 
   };
 
+  //  ${this.choices_days[+this.form.days[0] + frame][1]}
+
+  setDayFrame(day, frame) {
+
+    if ((day + frame) > 6) {
+      return 0;
+    }
+    return day + frame;
+
+    /*
+    if (+this.form.days[this.form.days.length - 1] === 0) { // sunday
+      frame = -this.form.days[0]
+    } else {
+      frame = 0
+    }
+    */
+  }
   public setAnimationSpeed(speed: number) {
     this.isPlaying = false;
     this.stop();
@@ -255,7 +272,7 @@ export class PopularTimesTimelineComponent implements OnInit {
     }
 
     if (+this.form.timeline === 1) {
-      frame = 0
+      frame = 0;
     }
 
 

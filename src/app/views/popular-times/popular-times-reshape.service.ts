@@ -243,7 +243,9 @@ export class PopularTimesReshapeService {
 
             // WE ARE HERE, now pass the data to heatMap
 
-            let r;
+            this.heatMapData$.next(mediaHoursByDay);
+            return false;
+
         }
 
 

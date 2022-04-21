@@ -29,7 +29,9 @@ export class PopularTimesFormComponent {
   venuemarkers: L.LayerGroup = new L.LayerGroup(); //new Array();
 
   dataTimeline: any = {
+    timeline: 0,
     day: 0,
+    days: null,
     startHour: 0,
     endHour: 23,
     speed: 500

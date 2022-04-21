@@ -10,7 +10,9 @@ import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 export class PopularTimesFormService {
 
     public form$: BehaviorSubject<any> = new BehaviorSubject<any>({
+        timeline: 0,
         day: 0,
+        days: null,
         startHour: 0,
         endHour: 23,
         speed: 500

@@ -105,24 +105,52 @@ export class PopularTimesTimelineComponent implements OnInit {
       point.innerHTML = '';
     })
 
-    //Text of the first point
-    timePoints[0].innerHTML =
-      `<div style="margin-top:4px; color:#a7a7a7;font-size:11px">
+    // Hours
+    if (+this.form.timeline === 0) {
+
+      //Text of the first point
+      timePoints[0].innerHTML =
+        `<div style="margin-top:4px; color:#a7a7a7;font-size:11px">
             ${this.choices_hours[+this.form.startHour][1]}
       </div>`;
 
-    //Text of the last point
-    timePoints[this.data.length - 1].innerHTML =
-      `<div style="margin-top:4px;color:#a7a7a7;font-size:11px">
+      //Text of the last point
+      timePoints[this.data.length - 1].innerHTML =
+        `<div style="margin-top:4px;color:#a7a7a7;font-size:11px">
             ${this.choices_hours[+this.form.endHour][1]}
       </div>`;
 
-    timePoints[frame].classList.add('active');
-    //Text of the pointer
-    timePoints[frame].innerHTML =
-      `<div style="margin-top:4px; color:#7367F0;font-size:11px">
+      timePoints[frame].classList.add('active');
+      //Text of the pointer
+      timePoints[frame].innerHTML =
+        `<div style="margin-top:4px; color:#7367F0;font-size:11px">
             ${this.choices_hours[frame + +this.form.startHour][1]}
       </div>`;
+
+    }
+    if (+this.form.timeline === 1) {
+      //Text of the first point
+      timePoints[0].innerHTML =
+        `<div style="margin-top:4px; color:#a7a7a7;font-size:11px">
+            ${this.choices_days[+this.form.days[0]][1]}
+      </div>`;
+
+      //Text of the last point
+      timePoints[this.data.length - 1].innerHTML =
+        `<div style="margin-top:4px;color:#a7a7a7;font-size:11px">
+              ${this.choices_days[+this.form.days[this.form.days.length - 1]][1]}
+      </div>`;
+
+      timePoints[frame].classList.add('active');
+      //Text of the pointer
+      timePoints[frame].innerHTML =
+        `<div style="margin-top:4px; color:#7367F0;font-size:11px">
+            ${this.choices_days[+this.form.days[0] + frame][1]}
+      </div>`;
+
+
+
+    }
 
   };
 

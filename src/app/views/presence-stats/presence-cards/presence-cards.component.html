@@ -1,0 +1,21 @@
+<article>
+
+    <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutGap="2rem">
+        <div fxFlex="100%">
+            <div class="content">
+                <div fxLayout="row wrap" fxLayoutGap="16px grid">
+
+                    <div [fxFlex]="(100/4) + '%'" fxFlex.xs="100%" *ngFor="let card of cards; let i = index">
+
+
+                        <app-presence-card [card]="card">
+                        </app-presence-card>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</article>

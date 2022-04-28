@@ -1,0 +1,36 @@
+<div class="container padding__basic">
+
+    <form [formGroup]="form" target="_blank" class="local-form" id="presence_form" name="presence_form">
+        <div class="container">
+
+
+
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="left">
+                <div fxFlex="50">
+                    <p class="margin__bottom-xxs"><strong><small>Pois:</small></strong></p>
+                    <mat-form-field>
+                        <mat-label>Seleccione hasta 6</mat-label>
+                        <mat-select formControlName="pois" multiple="multiple">
+                            <mat-option *ngFor="let option of options" [value]="option.properties.id">
+                                {{option.properties.id}}</mat-option>
+
+                        </mat-select>
+
+                    </mat-form-field>
+                    <p>{{message}}</p>
+
+
+                </div>
+                <div fxFlex="50">
+
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </form>
+</div>

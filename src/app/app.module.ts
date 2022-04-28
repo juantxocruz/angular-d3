@@ -13,7 +13,6 @@ import { MaterialModule } from './material.module';
 import '@angular/common/locales/global/es';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

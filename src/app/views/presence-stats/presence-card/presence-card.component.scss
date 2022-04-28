@@ -1,0 +1,67 @@
+.card{
+    padding: 8px;
+    width: 100%;
+    background-color: #eee;
+    min-height: 10px;
+    border-radius: 4px;
+}
+
+.card-head{
+    margin: 8px 0;
+    display: block;
+    overflow: hidden;
+    .inline{
+        display: inline-block;
+    }
+    .card-icon{
+        margin-right: 8px;
+        vertical-align: top;
+    }
+    .card-title{
+        .title{
+            font-size: 14px;
+        }
+        .address{
+            font-size: 12px;
+        }
+        .number{
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+    }
+    .card-circle{
+        float: right;
+        .circle{
+            width: 70px;
+            height: 70px;
+            border-radius: 35px;
+            background-color: red;
+    
+        }
+
+    }
+}
+
+.card-body{
+    padding: 8px 0 8px 16px;
+
+    table{
+        border-collapse: collapse;
+        width: 100%;
+        td,
+        th {
+            border-top: 1px solid #ffffff;
+            border-bottom: 1px solid #ffffff;
+            text-align: left;
+            padding: 8px;
+        }
+        td:last-child,
+        th:last-child {
+         
+            text-align: right;
+       
+        }
+    }
+
+}

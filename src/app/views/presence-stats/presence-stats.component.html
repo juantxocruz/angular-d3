@@ -1,0 +1,44 @@
+<main>
+    <div class="container">
+        <section>
+            <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutGap="2rem">
+                <div fxFlex="50%">
+                    <h1>Presence Stats</h1>
+
+                </div>
+                <div fxFlex="50%">
+                    <ng-template #form_progress>
+                        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                    </ng-template>
+                    <app-presence-form *ngIf="presencePois$ | async as options; else form_progress" [options]="options">
+                    </app-presence-form>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutGap="2rem">
+                <div fxFlex="50%">
+
+
+                </div>
+                <div fxFlex="50%">
+
+                </div>
+            </div>
+        </section>
+
+        <ng-template #loadingCards>
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </ng-template>
+
+        <section>
+
+            <app-presence-cards *ngIf="cards$ | async as cards; else loadingCards" [cards]="cards"></app-presence-cards>
+
+        </section>
+
+
+
+    </div>
+</main>

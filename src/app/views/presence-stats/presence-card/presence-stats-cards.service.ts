@@ -14,27 +14,22 @@ export interface Card {
     income: string;
     nationalty: string;
     period: string;
-    presence: {
-        total: number;
-        radius: number;
-        percent: number;
+    summary: {
+        presence: {
+            total: number;
+            radius: number;
+            percent: number;
+        }
     };
-    radius: number;
     title: string;
-    percent: number,
     transit: number;
 }
-
-
-
-
 @Injectable({ providedIn: 'root' })
 export class PresenceStatsCardsService {
 
     public cards$: BehaviorSubject<[]> = new BehaviorSubject(undefined);
 
     constructor(public http: HttpClient, private router: Router, private presenceStatsGlobalService: PresenceStatsGlobalService) { }
-
 
     getWinner(data) {
         let dictionary = this.presenceStatsGlobalService.getDictionary();
@@ -43,11 +38,10 @@ export class PresenceStatsCardsService {
         let winner = sorted[0] && sorted[1] && (sorted[0][0] === 't') ? sorted[1] : sorted[0];
         let wording = dictionary[winner[0]];
         return this.presenceStatsGlobalService.capitalize(wording);
-
     }
 
     sortCards(cards: Card[]): Card[] {
-        let result = cards.sort((a, b) => b.presence.total - a.presence.total);
+        let result = cards.sort((a, b) => b.summary.presence.total - a.summary.presence.total);
         return result;
     }
 
@@ -82,6 +76,10 @@ export class PresenceStatsCardsService {
 
     }
 
+    getGenderPercent(sex, d) {
+        let sum = d.female + d.male;
+        return d[sex] * 100 / sum;
+    }
 
     changeCards(pois: any[]): void {
         let result = [];
@@ -89,18 +87,26 @@ export class PresenceStatsCardsService {
         let sumPresence = this.getTheSumPresence(pois);
 
         pois.forEach((poi: any, i: number) => {
+            let presence = poi.properties.summary.presence;
+
             result.push({
-                presence: {
-                    total: null,
-                    radius: null,
-                    percent: null
+                summary: {
+                    presence: {
+                        total: null,
+                        radius: null,
+                        percent: null
+                    },
+                    gender: {
+                        groups: null,
+                        percents: null
+                    }
                 }
             });
-            let presence = poi.properties.summary.presence;
+
+
             result[i].color = poi.properties.color;
             result[i].title = poi.properties.id; // change for enseña name
             result[i].address = poi.properties.nombre; // change for real address
-            result[i].presence.total = presence.total;
             result[i].income = this.getWinner(presence.income);
             result[i].gender = this.getWinner(presence.sex);
             result[i].age = this.getWinner(presence.age);
@@ -108,8 +114,17 @@ export class PresenceStatsCardsService {
             result[i].period = this.getWinner(presence.period);
             result[i].activity = this.getWinner(presence.activity);
             result[i].transit = presence.activity.t;
-            result[i].presence.radius = presence.total / maxPresence;
-            result[i].presence.percent = presence.total * 100 / sumPresence;
+            result[i].summary.presence.total = presence.total;
+            result[i].summary.presence.radius = presence.total / maxPresence;
+            result[i].summary.presence.percent = presence.total * 100 / sumPresence;
+            result[i].summary.gender.groups = {
+                male: presence.sex.male,
+                female: presence.sex.female
+            }
+            result[i].summary.gender.percents = {
+                male: this.getGenderPercent('male', presence.sex),
+                female: this.getGenderPercent('female', presence.sex)
+            }
         });
 
         let sorted = this.sortCards(result);

@@ -15,13 +15,13 @@ export class PresenceTotalComponent implements OnInit {
 
     let result = pois.map((poi: any, index: number) => {
       let r = {
-        value: poi.presence.total,
+        value: poi.summary.presence.total,
         id: 'block_' + index,
         title: poi.address,
         color: poi.color,
         isImportant: false,
         height: '16px',
-        width: poi.presence.percent,
+        width: poi.summary.presence.percent,
         border: '1px solid white'
       };
       return r;
@@ -38,6 +38,8 @@ export class PresenceTotalComponent implements OnInit {
   ngOnInit(): void {
     this.presence = this.getPresence(this.data);
   }
+
+  ngAfterViewInit() { return false; }
 
   ngOnChanges(changes: { [propName: string]: SimpleChange }) {
     //console.log('changes', changes, this.svg, this.chartSelected, this.key, this.margin);

@@ -13,6 +13,7 @@ import { PresenceStatsCardsService } from './presence-card/presence-stats-cards.
 import { PresenceCardsComponent } from './presence-cards/presence-cards.component';
 import { MutedStackedbarComponent } from '../../html/muted-stackedbar/muted-stackedbar.component';
 import { PresenceTotalComponent } from './presence-total/presence-total.component';
+import { PresenceGenderComponent } from './presence-gender/presence-gender.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PresenceTotalComponent } from './presence-total/presence-total.componen
     PresenceCardComponent,
     PresenceCardsComponent,
     MutedStackedbarComponent,
-    PresenceTotalComponent
+    PresenceTotalComponent,
+    PresenceGenderComponent
   ],
   imports: [
     CommonModule,

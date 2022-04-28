@@ -15,13 +15,13 @@
         <div class="inline card-title">
             <p class="title" style="text-overflow: ellipsis;">{{card.title}}</p>
             <p class="address" style="text-overflow: ellipsis;">{{card.address}}</p>
-            <p class="number">{{card.presence.total | number: "1.0-0":"es-ES"}}</p>
+            <p class="number">{{card.summary.presence.total | number: "1.0-0":"es-ES"}}</p>
 
         </div>
         <div class="inline card-circle">
             <div class="circle">
                 <svg viewBox="0 0 160 160" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                    <circle [attr.fill]="card.color" cx="80" cy="80" [attr.r]="card.presence.radius * 80" />
+                    <circle [attr.fill]="card.color" cx="80" cy="80" [attr.r]="card.summary.presence.radius * 80" />
                 </svg>
             </div>
         </div>

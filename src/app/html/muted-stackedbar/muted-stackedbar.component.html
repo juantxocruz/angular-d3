@@ -5,10 +5,11 @@
 
         <div [attr.height]="d.height ? d.height : '16px'" [style.background-color]="d.color ? d.color  : 'green'"
             [style.font-size]="d.isImportant ? '1em' : '0.8em'" [style.height]="d.height ? d.height : '16px'"
-            [attr.border]="d.border ? d.border : '1px solid white'">
+            [style.border]="d.border ? d.border : '1px solid white'">
 
         </div>
-        <p [style.font-size]="d.isImportant ? '1em' : '1em'">{{d.width | number: "1.0-0":"es-ES"}}%</p>
+        <p [style.font-size]="d.isImportant ? '1em' : '1em'" [style.margin-top]="'4px'">{{d.width | number:
+            "1.0-0":"es-ES"}}% <small><span *ngIf="d.name">({{d.name}})</span></small></p>
 
     </div>
 

@@ -16,19 +16,24 @@ export class PresenceFormComponent implements OnInit {
   constructor(private presenceFormService: PresenceFormService) {
 
     this.form = new FormGroup({
-      pois: new FormControl([])
+      pois: new FormControl()
     });
 
     this.form.valueChanges.subscribe((f) => {
-      this.presenceFormService.setForm(this.form.value);
+      if (f) {
+        if (f.pois && f.pois.length > 0) {
+          if (f.pois.length > 6) {
+            this.form.controls.pois.setValue(f.pois.slice(0, 6), { emitEvent: false });
+            return false;
+          }
+
+        }
+        this.presenceFormService.setForm(this.form.value); // observable
+      }
+
     });
 
-    this.form.controls.pois.valueChanges.subscribe((v) => {
-      if (v.length >= 6) {
-        this.form.controls.pois.setValue(v.slice(0, 6), { emitEvent: false });
-        return false;
-      }
-    });
+
 
   }
 

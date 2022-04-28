@@ -12,14 +12,20 @@ export class PresenceCardComponent implements OnInit {
     color: "#E74C3C",
     title: "Aldi",
     address: "Paseo de la Infanta Isabel 21",
-    presence: 22580,
+    presence: {
+      total: 22000,
+      radius: 1,
+      percent: 20
+    },
     income: "15000-inf",
     gender: "Mujer",
     age: "45-65",
     nationalty: "España",
     period: "14:00-20:59",
     activity: "Tránsito",
-    transit: 22580
+    transit: 22580,
+    percent: 100,
+    radius: 0
   }
   color: string;
 

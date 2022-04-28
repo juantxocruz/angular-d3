@@ -8,7 +8,9 @@ import { Card } from '../presence-card/presence-stats-cards.service';
 })
 export class PresenceCardsComponent implements OnInit {
 
-  @Input() cards: Array<Card>;
+  // ERROR Error: NG0100: ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked. Previous value: 'undefined'. Current value: 
+  // WHY???? To study
+  @Input() cards: Card[];
 
   constructor() { }
 

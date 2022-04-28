@@ -16,13 +16,22 @@
     .card-icon{
         margin-right: 8px;
         vertical-align: top;
+        width: 8%;
     }
     .card-title{
+        max-width: 100%;
+        width: 88%;
         .title{
             font-size: 14px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
         }
         .address{
             font-size: 12px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
         }
         .number{
             font-size: 24px;
@@ -32,11 +41,12 @@
     }
     .card-circle{
         float: right;
+        width: 40%;
         .circle{
-            width: 70px;
-            height: 70px;
-            border-radius: 35px;
-            background-color: red;
+            width: 80px;
+            height: 80px;
+            border-radius: 40px;
+            background-color: transparent;
     
         }
 

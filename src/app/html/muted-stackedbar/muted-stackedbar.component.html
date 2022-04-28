@@ -1,0 +1,15 @@
+<article *ngIf="stacked">
+
+    <div *ngFor="let d of data; let i = index" [attr.data-index]="i" [attr.id]="d.id ? d.id : 'block_' + i"
+        [style.display]="'inline-block'" [style.width]="d.width ? d.width+'%' : '20%'">
+
+        <div [attr.height]="d.height ? d.height : '16px'" [style.background-color]="d.color ? d.color  : 'green'"
+            [style.font-size]="d.isImportant ? '1em' : '0.8em'" [style.height]="d.height ? d.height : '16px'"
+            [attr.border]="d.border ? d.border : '1px solid white'">
+
+        </div>
+        <p [style.font-size]="d.isImportant ? '1em' : '1em'">{{d.width | number: "1.0-0":"es-ES"}}%</p>
+
+    </div>
+
+</article>

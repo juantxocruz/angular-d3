@@ -28,13 +28,42 @@
             </div>
         </section>
 
+        <section>
+
+            <ng-template #loadingPresenceTotal>
+                <p><strong>Presencia (%)</strong></p>
+                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </ng-template>
+
+            <app-presence-total *ngIf="cards$ | async as cards; else loadingPresenceTotal" [data]="cards">
+            </app-presence-total>
+
+
+
+
+        </section>
+
+
+
         <ng-template #loadingCards>
+            <p><strong>Presencia (%)</strong></p>
             <mat-progress-bar mode="indeterminate"></mat-progress-bar>
         </ng-template>
 
         <section>
 
-            <app-presence-cards *ngIf="cards$ | async as cards; else loadingCards" [cards]="cards"></app-presence-cards>
+            <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutGap="2rem">
+                <div fxFlex="100%">
+                    <app-presence-cards *ngIf="cards$ | async as cards; else loadingCards" [cards]="cards">
+                    </app-presence-cards>
+
+                </div>
+
+            </div>
+
+
+
+
 
         </section>
 

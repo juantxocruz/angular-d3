@@ -11,6 +11,8 @@ import { PresenceStatsGlobalService } from './presence-stats-global.service';
 import { PresenceCardComponent } from './presence-card/presence-card.component';
 import { PresenceStatsCardsService } from './presence-card/presence-stats-cards.service';
 import { PresenceCardsComponent } from './presence-cards/presence-cards.component';
+import { MutedStackedbarComponent } from '../../html/muted-stackedbar/muted-stackedbar.component';
+import { PresenceTotalComponent } from './presence-total/presence-total.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { PresenceCardsComponent } from './presence-cards/presence-cards.componen
     PresenceStatsComponent,
     PresenceFormComponent,
     PresenceCardComponent,
-    PresenceCardsComponent
+    PresenceCardsComponent,
+    MutedStackedbarComponent,
+    PresenceTotalComponent
   ],
   imports: [
     CommonModule,

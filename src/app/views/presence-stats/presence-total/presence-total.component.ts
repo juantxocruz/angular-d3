@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SimpleChange } from '@angular/core';
 
+
 @Component({
   selector: 'app-presence-total',
   templateUrl: './presence-total.component.html',

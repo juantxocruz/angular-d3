@@ -12,7 +12,7 @@
                         <mat-label>Seleccione hasta 6</mat-label>
                         <mat-select formControlName="pois" multiple="multiple">
                             <mat-option *ngFor="let option of options" [value]="option.properties.id">
-                                {{option.properties.id}}</mat-option>
+                                {{option.properties.title}}</mat-option>
 
                         </mat-select>
 

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GroupedVerticalBarLayoutService } from 'src/app/d3/services/grouped-vertical-bar-layout.service';
+import { SimpleChange } from '@angular/core';
+
 
 @Component({
   selector: 'app-presence-income',
@@ -15,26 +17,51 @@ export class PresenceIncomeComponent implements OnInit {
 
   constructor(private groupedVerticalBarLayoutService: GroupedVerticalBarLayoutService) { }
 
-  getChartData(brickGroup, areaGroup, list) {
-    let result = {
-      key: list.key,
-      format: list.formato,
-      categories: 'Áreas',
-      children: [
-        { category: 'brick', [list.key]: brickGroup[list.key] },
-        { category: 'area', [list.key]: areaGroup[list.key] }
-      ]
 
+  getIncomeChildren(pois: any[]): any[] {
+    let keys: Array<string> = Object.keys(pois[0].summary.income.groups).filter(key => key && key !== 'none' && key !== 'None');
+    let children = keys.map((key: string) => {
+      let category = {
+        "category": key
+      };
+      pois.forEach((poi: any) => {
+        category[poi.title] = poi.summary.income.groups[key];
+      });
+      return category;
+    })
+    return children;
+  }
+
+  getChartData(pois: any[]): {} {
+    let result = {
+      key: 'income',
+      format: 'val',
+      categories: 'Ingresos',
+      children: this.getIncomeChildren(pois)
     };
     return result;
   }
 
+  getTheColors(pois: any[]): string[] {
+    return pois.map(poi => poi.color)
+  }
+
+
   ngOnInit(): void {
     this.hour = new Date();
     // we are here
-    // this.chartData = this.getChartData(this.data);
-    this.chartLayout = this.groupedVerticalBarLayoutService.getLayout('indicators_bars')[0];
+    this.chartData = this.getChartData(this.data);
+    this.chartLayout = this.groupedVerticalBarLayoutService.getLayout('presence_income')[0];
+    this.chartLayout.design.style.colors = this.getTheColors(this.data);
     this.chartLayout['data'] = this.chartData;
   }
+  ngOnChanges(changes: { [propName: string]: SimpleChange }) {
+    //console.log('changes', changes, this.svg, this.chartSelected, this.key, this.margin);
+    this.chartData = this.getChartData(this.data);
+    this.chartLayout['data'] = this.chartData;
+    this.hour = new Date();
+
+  };
+
 
 }

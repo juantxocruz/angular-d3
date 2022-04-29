@@ -1,3 +1,4 @@
-<p>presence-income works!</p>
-<!-- <app-grouped-vertical-barchart [hour]="hour" [chartLayout]="chartLayout">
-</app-grouped-vertical-barchart> -->
+<div *ngIf="hour && chartLayout">
+    <app-grouped-vertical-barchart [hour]="hour" [chartLayout]="chartLayout">
+    </app-grouped-vertical-barchart>
+</div>

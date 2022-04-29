@@ -24,6 +24,7 @@ import { ColorsService } from '../../d3/services/colors.service';
 import { WordingService } from "../../d3/services/wording.service";
 import { PresenceIncomeComponent } from './presence-income/presence-income.component';
 import { GroupedVerticalBarLayoutService } from 'src/app/d3/services/grouped-vertical-bar-layout.service';
+import { TooltipStyleService } from 'src/app/d3/services/tooltipStyle.service';
 @NgModule({
   declarations: [
     PresenceStatsComponent,
@@ -55,6 +56,7 @@ import { GroupedVerticalBarLayoutService } from 'src/app/d3/services/grouped-ver
     MeasureService,
     ColorsService,
     WordingService,
+    TooltipStyleService,
     GroupedVerticalBarLayoutService
 
 

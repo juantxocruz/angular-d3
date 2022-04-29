@@ -241,9 +241,6 @@ export class PopularTimesReshapeService {
             let formDaysByHoursData = this.getFormDaysByHoursData(sevenDaysByHoursData, eightDaysForm);
             let hoursByDay = this.sumHoursByDay(formDaysByHoursData);
             let mediaHoursByDay = this.getMediaHoursByDay(hoursByDay, eightDaysForm);
-
-            // WE ARE HERE, now pass the data to heatMap
-
             this.heatMapData$.next(mediaHoursByDay);
             return false;
 

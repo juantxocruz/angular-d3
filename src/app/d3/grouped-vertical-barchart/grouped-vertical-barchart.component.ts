@@ -578,7 +578,7 @@ export class GroupedVerticalBarchartComponent implements OnInit {
     this.chartId = this.key;
     this.class = this.chartLayout.class;
     this.colors = this.colorsService.colors;
-    this.resize_delay = this.defaultVarsService.resize_delay;
+    this.resize_delay = this.chartLayout.resize_delay ? this.chartLayout.resize_delay : this.defaultVarsService.resize_delay;
     this.margin = this.chartLayout.design.margin;
     this.style = this.chartLayout.design.style;
     this.dictionary = this.chartLayout.dictionary;

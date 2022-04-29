@@ -99,13 +99,17 @@ export class PresenceStatsCardsService {
                     gender: {
                         groups: null,
                         percents: null
+                    },
+                    income: {
+                        groups: null,
+                        percents: null
                     }
                 }
             });
 
 
             result[i].color = poi.properties.color;
-            result[i].title = poi.properties.id; // change for enseña name
+            result[i].title = poi.properties.id; // change for enseña name TITLE is the name of the shop, but here is an address :–(
             result[i].address = poi.properties.nombre; // change for real address
             result[i].income = this.getWinner(presence.income);
             result[i].gender = this.getWinner(presence.sex);
@@ -120,11 +124,13 @@ export class PresenceStatsCardsService {
             result[i].summary.gender.groups = {
                 male: presence.sex.male,
                 female: presence.sex.female
-            }
+            };
             result[i].summary.gender.percents = {
                 male: this.getGenderPercent('male', presence.sex),
                 female: this.getGenderPercent('female', presence.sex)
-            }
+            };
+            result[i].summary.income.groups = presence.income;
+
         });
 
         let sorted = this.sortCards(result);

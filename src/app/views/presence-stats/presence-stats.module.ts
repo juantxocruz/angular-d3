@@ -14,8 +14,16 @@ import { PresenceCardsComponent } from './presence-cards/presence-cards.componen
 import { MutedStackedbarComponent } from '../../html/muted-stackedbar/muted-stackedbar.component';
 import { PresenceTotalComponent } from './presence-total/presence-total.component';
 import { PresenceGenderComponent } from './presence-gender/presence-gender.component';
-
-
+import { GroupedVerticalBarchartComponent } from 'src/app/d3/grouped-vertical-barchart/grouped-vertical-barchart.component';
+import { DimensionsService } from "../../d3/services/dimensiones.service";
+import { DefaultVarsService } from "../../d3/services/default-vars.service";
+import { LocaleEsService } from "../../d3/services/locale-es.service";
+import { AxisTitleService } from "../../d3/services/axis-title.service";
+import { MeasureService } from "../../d3/services/measure.service";
+import { ColorsService } from '../../d3/services/colors.service';
+import { WordingService } from "../../d3/services/wording.service";
+import { PresenceIncomeComponent } from './presence-income/presence-income.component';
+import { GroupedVerticalBarLayoutService } from 'src/app/d3/services/grouped-vertical-bar-layout.service';
 @NgModule({
   declarations: [
     PresenceStatsComponent,
@@ -24,7 +32,9 @@ import { PresenceGenderComponent } from './presence-gender/presence-gender.compo
     PresenceCardsComponent,
     MutedStackedbarComponent,
     PresenceTotalComponent,
-    PresenceGenderComponent
+    PresenceGenderComponent,
+    GroupedVerticalBarchartComponent,
+    PresenceIncomeComponent
   ],
   imports: [
     CommonModule,
@@ -33,6 +43,21 @@ import { PresenceGenderComponent } from './presence-gender/presence-gender.compo
     ReactiveFormsModule,
     PresenceStatsRoutingModule
   ],
-  providers: [PresenceStatsApiService, PresenceFormService, PresenceStatsGlobalService, PresenceStatsCardsService]
+  providers: [
+    PresenceStatsApiService,
+    PresenceFormService,
+    PresenceStatsGlobalService,
+    PresenceStatsCardsService,
+    DimensionsService,
+    DefaultVarsService,
+    LocaleEsService,
+    AxisTitleService,
+    MeasureService,
+    ColorsService,
+    WordingService,
+    GroupedVerticalBarLayoutService
+
+
+  ]
 })
 export class PresenceStatsModule { }

@@ -19,11 +19,8 @@ export class PresenceStatsComponent implements OnInit {
   cards$ = this.presenceStatsCardsService.cards$; // Up to six cards
 
   colors: ["#2E86C1", "#E74C3C", "#F1C40F", "#2ECC71", "#7D3C98", "#E67E22"];
-
-
-
-
   gridColumns: 4;
+
   constructor(
     private presenceStatsApiService: PresenceStatsApiService,
     private presenceFormService: PresenceFormService,

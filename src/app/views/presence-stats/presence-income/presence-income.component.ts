@@ -46,20 +46,22 @@ export class PresenceIncomeComponent implements OnInit {
     return pois.map(poi => poi.color)
   }
 
-
-  ngOnInit(): void {
+  setTheChart() {
     this.hour = new Date();
     // we are here
     this.chartData = this.getChartData(this.data);
     this.chartLayout = this.groupedVerticalBarLayoutService.getLayout('presence_income')[0];
     this.chartLayout.design.style.colors = this.getTheColors(this.data);
     this.chartLayout['data'] = this.chartData;
+
+  }
+
+
+  ngOnInit(): void {
+    //this.setTheChart();
   }
   ngOnChanges(changes: { [propName: string]: SimpleChange }) {
-    //console.log('changes', changes, this.svg, this.chartSelected, this.key, this.margin);
-    this.chartData = this.getChartData(this.data);
-    this.chartLayout['data'] = this.chartData;
-    this.hour = new Date();
+    this.setTheChart();
 
   };
 

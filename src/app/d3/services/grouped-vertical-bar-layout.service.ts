@@ -50,6 +50,7 @@ export class GroupedVerticalBarLayoutService {
                 },
             },
             resize_delay: 400,
+
             viewChartLegend: false,
             xVal: {
                 name: "Zona de influencia",
@@ -100,6 +101,7 @@ export class GroupedVerticalBarLayoutService {
                 },
             },
             resize_delay: 400,
+
             viewChartLegend: false,
             xVal: {
                 name: "Ingresos",

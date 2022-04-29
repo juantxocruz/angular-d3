@@ -146,6 +146,7 @@ export class GroupedVerticalBarchartComponent implements OnInit {
     this.width = dimensions.width;
     this.height = dimensions.height;
     this.yScale.rangeRound([this.height, 0]).domain(this.yDomain).nice();
+    this.colorScale.range(this.style.colors);
     this.xScale.domain(this.xDomain).range([0, this.width]);
     this.xScaleBars.domain(this.xKeys).rangeRound([0, this.xScale.bandwidth()]);
     this.legendScale.domain(this.legendScaleDomain).range([0, this.width]);
@@ -337,8 +338,11 @@ export class GroupedVerticalBarchartComponent implements OnInit {
       .attr("height", (d) => {
         return Math.abs(yScale(d.value) - yScale(0));
       })
-      .attr("fill", (d) => {
-        return colorScale(d.key);
+      .attr("fill", (d, i) => {
+
+        return colorScale(i);
+        // return colorScale(d.key); // array order, not sorting
+
       });
 
     bars = this.chartInner.selectAll("g.chartGroup").selectAll("rect.bar");
@@ -366,8 +370,10 @@ export class GroupedVerticalBarchartComponent implements OnInit {
       .attr("height", (d) => {
         return Math.abs(yScale(d.value) - yScale(0));
       })
-      .attr("fill", (d) => {
-        return colorScale(d.key);
+      .attr("fill", (d, i) => {
+
+        return colorScale(i); // working fine
+        //return colorScale(d.key);
       })
       .on("end", (d, i, arr) => {
         d3.select(arr[i])
@@ -454,7 +460,7 @@ export class GroupedVerticalBarchartComponent implements OnInit {
 
 
   public runAll = (): void => {
-    this.colorScale = d3.scaleOrdinal().range(this.style.colors);
+    this.colorScale = d3.scaleOrdinal();
     this.xScale = d3.scaleBand().paddingInner(this.style.paddingInner);
     this.xScaleBars = d3.scaleBand().padding(this.style.padding);
     this.yScale = d3.scaleLinear();

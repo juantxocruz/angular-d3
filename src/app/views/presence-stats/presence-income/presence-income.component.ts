@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GroupedVerticalBarLayoutService } from 'src/app/d3/services/grouped-vertical-bar-layout.service';
 import { SimpleChange } from '@angular/core';
-
+import { PresenceStatsGlobalService } from '../presence-stats-global.service';
 
 @Component({
   selector: 'app-presence-income',
@@ -14,15 +14,18 @@ export class PresenceIncomeComponent implements OnInit {
   public hour: Date | undefined = undefined;
   chartData: any;
   chartLayout: any = {};
+  dictionary = this.presenceStatsGlobalService.dictionary;
 
-  constructor(private groupedVerticalBarLayoutService: GroupedVerticalBarLayoutService) { }
+  constructor(
+    private groupedVerticalBarLayoutService: GroupedVerticalBarLayoutService,
+    private presenceStatsGlobalService: PresenceStatsGlobalService) { }
 
 
   getIncomeChildren(pois: any[]): any[] {
     let keys: Array<string> = Object.keys(pois[0].summary.income.groups).filter(key => key && key !== 'none' && key !== 'None');
     let children = keys.map((key: string) => {
       let category = {
-        "category": key
+        "category": this.dictionary && this.dictionary[key] ? this.dictionary[key] : key
       };
       pois.forEach((poi: any) => {
         category[poi.title] = poi.summary.income.groups[key];
@@ -35,7 +38,7 @@ export class PresenceIncomeComponent implements OnInit {
   getChartData(pois: any[]): {} {
     let result = {
       key: 'income',
-      format: 'Euros',
+      format: 'Volumen',
       categories: 'Ingresos',
       children: this.getIncomeChildren(pois)
     };

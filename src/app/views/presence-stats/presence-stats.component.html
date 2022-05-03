@@ -35,7 +35,7 @@
                     <ng-template #loadingPresenceIncome>
                         <mat-progress-bar mode="indeterminate"></mat-progress-bar>
                     </ng-template>
-                    <p class="mb-2"><strong>Ingresos</strong>(%)</p>
+                    <p class="mb-2"><strong>Ingresos </strong>(registros)</p>
                     <app-presence-income *ngIf="cards$ | async as cards; else loadingPresenceIncome" [data]="cards">
                     </app-presence-income>
 

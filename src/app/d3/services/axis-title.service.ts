@@ -6,6 +6,7 @@ export class AxisTitleService {
         let title: string;
 
         switch (word) {
+
             case "Volumen":
                 {
                     title = "Número";
@@ -49,7 +50,7 @@ export class AxisTitleService {
                 break;
             case "Ingresos":
                 {
-                    title = "Ingresos";
+                    title = "Ingresos (€)";
                 }
                 break;
 

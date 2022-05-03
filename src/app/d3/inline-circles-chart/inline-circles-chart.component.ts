@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChange } from '@angular/core';
+import { Component, OnInit, Input, SimpleChange, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { DefaultVarsService } from '../services/default-vars.service';
 import { DimensionsService } from '../services/dimensiones.service';
 import { AxisTitleService } from '../services/axis-title.service';
@@ -7,7 +7,9 @@ import * as d3 from "d3";
 @Component({
   selector: 'app-inline-circles-chart',
   templateUrl: './inline-circles-chart.component.html',
-  styleUrls: ['./inline-circles-chart.component.scss']
+  styleUrls: ['./inline-circles-chart.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InlineCirclesChartComponent implements OnInit {
 

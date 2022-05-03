@@ -15,7 +15,7 @@ import * as d3 from "d3";
   templateUrl: './grouped-vertical-barchart.component.html',
   styleUrls: ['./grouped-vertical-barchart.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GroupedVerticalBarchartComponent implements OnInit {
 

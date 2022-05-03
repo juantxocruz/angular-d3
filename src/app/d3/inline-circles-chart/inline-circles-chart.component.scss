@@ -1,0 +1,46 @@
+:host {
+    display: block;
+    overflow: hidden;
+}
+
+svg {
+    font: 10px sans-serif;
+    shape-rendering: crispEdges;
+}
+
+.chart-area {
+    min-height: 400px;
+    width: 100%;
+    display: block;
+    margin-bottom: 16px;
+    overflow: hidden;
+
+    &.chart_height_m {
+        min-height: 380px;
+    }
+
+    &.chart_height_s {
+        min-height: 360px;
+    }
+
+    &.chart_height_xs {
+        min-height: 340px;
+    }
+
+    &.chart_height_xxs {
+        min-height: 240px;
+    }
+}
+
+text {
+    font-family: sans-serif;
+}
+
+.circle {
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.axis--x path {
+    display: none;
+}

@@ -2,3 +2,7 @@
     <app-grouped-vertical-barchart [hour]="hour" [chartLayout]="chartLayout">
     </app-grouped-vertical-barchart>
 </div>
+
+<div *ngIf="hour && circlesLayout">
+    <app-inline-cicle-chart [hour]="hour" [circlesLayout]="circlesLayout"></app-inline-cicle-chart>
+</div>

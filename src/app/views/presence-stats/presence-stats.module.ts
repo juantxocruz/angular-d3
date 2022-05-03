@@ -23,8 +23,10 @@ import { MeasureService } from "../../d3/services/measure.service";
 import { ColorsService } from '../../d3/services/colors.service';
 import { WordingService } from "../../d3/services/wording.service";
 import { PresenceIncomeComponent } from './presence-income/presence-income.component';
-import { GroupedVerticalBarLayoutService } from 'src/app/d3/services/grouped-vertical-bar-layout.service';
+import { GroupedVerticalBarLayoutService } from 'src/app/d3/grouped-vertical-barchart/grouped-vertical-bar-layout.service';
 import { TooltipStyleService } from 'src/app/d3/services/tooltipStyle.service';
+import { InlineCicleChartComponent } from '../../d3/inline-cicle-chart/inline-cicle-chart.component';
+import { InlineCircleChartLayoutService } from 'src/app/d3/inline-cicle-chart/inline-circle-chart-layout.service';
 @NgModule({
   declarations: [
     PresenceStatsComponent,
@@ -35,7 +37,8 @@ import { TooltipStyleService } from 'src/app/d3/services/tooltipStyle.service';
     PresenceTotalComponent,
     PresenceGenderComponent,
     GroupedVerticalBarchartComponent,
-    PresenceIncomeComponent
+    PresenceIncomeComponent,
+    InlineCicleChartComponent
   ],
   imports: [
     CommonModule,
@@ -57,7 +60,8 @@ import { TooltipStyleService } from 'src/app/d3/services/tooltipStyle.service';
     ColorsService,
     WordingService,
     TooltipStyleService,
-    GroupedVerticalBarLayoutService
+    GroupedVerticalBarLayoutService,
+    InlineCircleChartLayoutService
 
 
   ]

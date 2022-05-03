@@ -76,6 +76,7 @@ export class GroupedVerticalBarLayoutService {
             // vertical bar chart
             key: "presence_income",
             section: "Glocally Popular Times Presence Income",
+
             design: {
                 height: 240,
                 width: null,

@@ -35,7 +35,7 @@ export class PresenceIncomeComponent implements OnInit {
   getChartData(pois: any[]): {} {
     let result = {
       key: 'income',
-      format: 'val',
+      format: 'Euros',
       categories: 'Ingresos',
       children: this.getIncomeChildren(pois)
     };

@@ -65,6 +65,7 @@ export class GroupedVerticalBarchartComponent implements OnInit {
   yDomain: Array<number>;
   min: number;
   max: number;
+  mean: number;
 
   // legend
   legendKeys: Array<any>;
@@ -118,6 +119,11 @@ export class GroupedVerticalBarchartComponent implements OnInit {
     });
     this.max = d3.max(this.dataChart, (d) => {
       return d3.max(this.xKeys, (key) => {
+        return +d[key];
+      });
+    });
+    this.mean = d3.mean(this.dataChart, (d) => {
+      return d3.mean(this.xKeys, (key) => {
         return +d[key];
       });
     });
@@ -176,6 +182,8 @@ export class GroupedVerticalBarchartComponent implements OnInit {
 
   }
 
+
+
   public drawAxis(): void {
     this.chartOuter
       .selectAll(".x.axis")
@@ -209,7 +217,11 @@ export class GroupedVerticalBarchartComponent implements OnInit {
       .enter()
       .append("svg:line")
       .attr("class", "zeroLine")
-      .attr("stroke", this.chartLayout.design.stroke.stroke);
+      .attr("stroke", this.chartLayout.design.stroke.stroke)
+      .attr("y1", this.yScale(0))
+      .attr("y2", this.yScale(0))
+      .attr("x1", 0)
+      .attr("x2", this.width);
 
     zeroLine = this.chartInner.selectAll(".zeroLine");
 
@@ -220,6 +232,36 @@ export class GroupedVerticalBarchartComponent implements OnInit {
       .attr("y2", this.yScale(0))
       .attr("x1", 0)
       .attr("x2", this.width);
+
+    let meanLine = this.chartInner.selectAll("line.meanLine").data([{}]);
+    meanLine
+      .exit()
+      .attr("class", "exit")
+      .transition()
+      .duration(this.defaultVarsService.default_time / 2)
+      .remove();
+
+    meanLine
+      .enter()
+      .append("svg:line")
+      .attr("class", "meanLine")
+      .attr("stroke", this.chartLayout.design.stroke.stroke)
+      .attr("stroke-dasharray", 0.9)
+      .attr("y1", this.yScale(0))
+      .attr("y2", this.yScale(0))
+      .attr("x1", 0)
+      .attr("x2", this.width);
+
+    meanLine = this.chartInner.selectAll("line.meanLine");
+
+    meanLine
+      .transition()
+      .duration(this.defaultVarsService.default_time)
+      .attr("y1", this.yScale(this.mean))
+      .attr("y2", this.yScale(this.mean))
+      .attr("x1", 0)
+      .attr("x2", this.width);
+
 
     // Append axis titles
     this.chartOuter

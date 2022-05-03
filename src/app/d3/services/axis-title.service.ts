@@ -47,6 +47,11 @@ export class AxisTitleService {
                     title = "Horas";
                 }
                 break;
+            case "Ingresos":
+                {
+                    title = "Ingresos";
+                }
+                break;
 
             default:
                 {

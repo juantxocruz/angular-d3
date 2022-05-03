@@ -5,11 +5,11 @@ import { AxisTitleService } from '../services/axis-title.service';
 import * as d3 from "d3";
 
 @Component({
-  selector: 'app-inline-cicle-chart',
-  templateUrl: './inline-cicle-chart.component.html',
-  styleUrls: ['./inline-cicle-chart.component.scss']
+  selector: 'app-inline-circles-chart',
+  templateUrl: './inline-circles-chart.component.html',
+  styleUrls: ['./inline-circles-chart.component.scss']
 })
-export class InlineCicleChartComponent implements OnInit {
+export class InlineCirclesChartComponent implements OnInit {
 
   @Input() circlesLayout: any;
   @Input() hour: Date;

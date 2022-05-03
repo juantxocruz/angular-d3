@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { GroupedVerticalBarLayoutService } from 'src/app/d3/grouped-vertical-barchart/grouped-vertical-bar-layout.service';
 import { SimpleChange } from '@angular/core';
 import { PresenceStatsGlobalService } from '../presence-stats-global.service';
-import { InlineCircleChartLayoutService } from 'src/app/d3/inline-cicle-chart/inline-circle-chart-layout.service';
+import { InlineCirclesChartLayoutService } from 'src/app/d3/inline-circles-chart/inline-circles-chart-layout.service';
 
 
 @Component({
@@ -24,7 +24,7 @@ export class PresenceIncomeComponent implements OnInit {
   constructor(
     private groupedVerticalBarLayoutService: GroupedVerticalBarLayoutService,
     private presenceStatsGlobalService: PresenceStatsGlobalService,
-    private inlineCircleChartLayoutService: InlineCircleChartLayoutService) { }
+    private InlineCirclesChartLayoutService: InlineCirclesChartLayoutService) { }
 
 
   // GROUPED BAR CHART
@@ -130,7 +130,7 @@ export class PresenceIncomeComponent implements OnInit {
   setTheCirclesChart() {
     //  circles chart
     this.circlesData = this.getCirclesChartData(this.data);
-    this.circlesLayout = this.inlineCircleChartLayoutService.getLayout('income_circles')[0];
+    this.circlesLayout = this.InlineCirclesChartLayoutService.getLayout('income_circles')[0];
     this.circlesLayout['data'] = this.circlesData;
 
   }

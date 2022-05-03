@@ -4,7 +4,7 @@ import { ColorsService } from "../services/colors.service";
 
 
 @Injectable()
-export class InlineCircleChartLayoutService {
+export class InlineCirclesChartLayoutService {
 
 
     //indicatorsDictionary;

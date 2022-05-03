@@ -25,8 +25,8 @@ import { WordingService } from "../../d3/services/wording.service";
 import { PresenceIncomeComponent } from './presence-income/presence-income.component';
 import { GroupedVerticalBarLayoutService } from 'src/app/d3/grouped-vertical-barchart/grouped-vertical-bar-layout.service';
 import { TooltipStyleService } from 'src/app/d3/services/tooltipStyle.service';
-import { InlineCicleChartComponent } from '../../d3/inline-cicle-chart/inline-cicle-chart.component';
-import { InlineCircleChartLayoutService } from 'src/app/d3/inline-cicle-chart/inline-circle-chart-layout.service';
+import { InlineCirclesChartComponent } from '../../d3/inline-circles-chart/inline-circles-chart.component';
+import { InlineCirclesChartLayoutService } from 'src/app/d3/inline-circles-chart/inline-circles-chart-layout.service';
 @NgModule({
   declarations: [
     PresenceStatsComponent,
@@ -38,7 +38,7 @@ import { InlineCircleChartLayoutService } from 'src/app/d3/inline-cicle-chart/in
     PresenceGenderComponent,
     GroupedVerticalBarchartComponent,
     PresenceIncomeComponent,
-    InlineCicleChartComponent
+    InlineCirclesChartComponent
   ],
   imports: [
     CommonModule,
@@ -61,7 +61,7 @@ import { InlineCircleChartLayoutService } from 'src/app/d3/inline-cicle-chart/in
     WordingService,
     TooltipStyleService,
     GroupedVerticalBarLayoutService,
-    InlineCircleChartLayoutService
+    InlineCirclesChartLayoutService
 
 
   ]

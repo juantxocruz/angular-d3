@@ -1,0 +1,49 @@
+
+.key {
+    padding: 4px;
+    width: 100%;
+    background-color: transparent;
+    min-height: 10px;
+    border-radius: 4px;
+}
+
+.key-head {
+    margin: 4px 0;
+    display: block;
+    overflow: hidden;
+
+    .inline {
+        display: inline-block;
+    }
+
+    .key-icon {
+        margin-right: 4px;
+        vertical-align: top;
+        width: 8%;
+        margin-top: 8px;
+    }
+
+    .key-title {
+        max-width: 100%;
+        width: 88%;
+
+        .title {
+            font-size: 10px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .address {
+            font-size: 10px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            margin-top: -4px;
+        }
+
+        
+    }
+
+}
+

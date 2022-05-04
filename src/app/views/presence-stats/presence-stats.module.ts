@@ -27,6 +27,7 @@ import { GroupedVerticalBarLayoutService } from 'src/app/d3/grouped-vertical-bar
 import { TooltipStyleService } from 'src/app/d3/services/tooltipStyle.service';
 import { InlineCirclesChartComponent } from '../../d3/inline-circles-chart/inline-circles-chart.component';
 import { InlineCirclesChartLayoutService } from 'src/app/d3/inline-circles-chart/inline-circles-chart-layout.service';
+import { PresenceKeysComponent } from './presence-keys/presence-keys.component';
 @NgModule({
   declarations: [
     PresenceStatsComponent,
@@ -38,7 +39,8 @@ import { InlineCirclesChartLayoutService } from 'src/app/d3/inline-circles-chart
     PresenceGenderComponent,
     GroupedVerticalBarchartComponent,
     PresenceIncomeComponent,
-    InlineCirclesChartComponent
+    InlineCirclesChartComponent,
+    PresenceKeysComponent
   ],
   imports: [
     CommonModule,

@@ -28,9 +28,50 @@
             </div>
         </section>
 
+
+
+
+
+
+        <!--    CARDS SECTION -->
+        <section>
+
+            <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutGap="2rem">
+                <div fxFlex="100%">
+                    <ng-template #loadingCards>
+                        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                    </ng-template>
+                    <app-presence-cards *ngIf="cards$ | async as cards; else loadingCards" [cards]="cards">
+                    </app-presence-cards>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!--    TOTAL PRESENCE BAR SECTION -->
+        <section class="mt-4 mb-4">
+            <ng-template #loadingPresenceTotal>
+                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </ng-template>
+            <p class="mb-2"><strong>Presencia</strong>(%)</p>
+            <app-presence-total *ngIf="cards$ | async as cards; else loadingPresenceTotal" [data]="cards">
+            </app-presence-total>
+        </section>
+
+
+        <!--       INCOME SECTION -->
         <section class="mt-4 mb-4">
             <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutGap="2rem">
                 <div fxFlex="100%">
+                    <p class="mb-2"><strong>Ingresos </strong>(registros)</p>
+                    <ng-template #loadingkeys>
+                        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                    </ng-template>
+
+                    <app-presence-keys *ngIf="cards$ | async as cards; else loadingkeys" [cards]="cards">
+                    </app-presence-keys>
 
                     <ng-template #loadingPresenceIncome>
                         <mat-progress-bar mode="indeterminate"></mat-progress-bar>
@@ -39,19 +80,14 @@
                     <app-presence-income *ngIf="cards$ | async as cards; else loadingPresenceIncome" [data]="cards">
                     </app-presence-income>
 
-
                 </div>
             </div>
-
-
 
         </section>
 
 
 
-
-
-
+        <!--    GENDER SECTION -->
         <section class="mt-4 mb-4">
             <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutGap="2rem">
                 <div fxFlex="100%">
@@ -64,40 +100,7 @@
                 </div>
             </div>
 
-
-
         </section>
-
-
-
-        <ng-template #loadingCards>
-
-            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-        </ng-template>
-
-        <section>
-
-            <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutGap="2rem">
-                <div fxFlex="100%">
-                    <app-presence-cards *ngIf="cards$ | async as cards; else loadingCards" [cards]="cards">
-                    </app-presence-cards>
-
-                </div>
-
-            </div>
-        </section>
-
-        <section class="mt-4 mb-4">
-
-            <ng-template #loadingPresenceTotal>
-                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-            </ng-template>
-            <p class="mb-2"><strong>Presencia</strong>(%)</p>
-            <app-presence-total *ngIf="cards$ | async as cards; else loadingPresenceTotal" [data]="cards">
-            </app-presence-total>
-
-        </section>
-
 
 
 

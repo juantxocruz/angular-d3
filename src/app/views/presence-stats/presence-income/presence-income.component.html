@@ -1,4 +1,10 @@
 <div *ngIf="hour && chartLayout">
+    <p class="mb-2"><strong>Ingresos </strong>(registros)</p>
     <app-grouped-vertical-barchart [hour]="hour" [chartLayout]="chartLayout">
     </app-grouped-vertical-barchart>
+</div>
+
+<div *ngIf="hour && circlesLayout">
+    <p class="mb-2"><strong>Ingresos </strong>(Volúmen en %)</p>
+    <app-inline-circles-chart [hour]="hour" [circlesLayout]="circlesLayout"></app-inline-circles-chart>
 </div>

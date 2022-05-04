@@ -18,6 +18,10 @@ export class MeasureService {
 
             case "Indice":
             case "Porcentaje":
+            case "Percent":
+            case "índice":
+            case "porcentaje":
+            case "percent":
                 {
                     measure = "perf";
                 }

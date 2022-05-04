@@ -28,10 +28,13 @@ export class InlineCirclesChartLayoutService {
             design: {
                 height: 240,
                 width: null,
-                margin: { top: 8, right: 8, bottom: 42, left: 80 },
+                margin: { top: 16, right: 8, bottom: 42, left: 80 },
                 stroke: {
                     width: 0.2,
                     stroke: this.colors.black,
+                },
+                text: {
+                    color: "#6e6e6e"
                 },
                 style: {
                     fill: "#C0C0C0", // here null if you want to use colors instead

@@ -5,7 +5,7 @@
 
 svg {
     font: 10px sans-serif;
-    shape-rendering: crispEdges;
+    shape-rendering: auto;
 }
 
 .chart-area {
@@ -32,8 +32,9 @@ svg {
     }
 }
 
-text {
+text, .tick text {
     font-family: sans-serif;
+    fill: '#6e6e6e'
 }
 
 .circle {

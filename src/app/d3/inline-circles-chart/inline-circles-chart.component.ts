@@ -2,6 +2,12 @@ import { Component, OnInit, Input, SimpleChange, ViewEncapsulation, ChangeDetect
 import { DefaultVarsService } from '../services/default-vars.service';
 import { DimensionsService } from '../services/dimensiones.service';
 import { AxisTitleService } from '../services/axis-title.service';
+import { LocaleEsService } from "../services/locale-es.service";
+import { MeasureService } from "../services/measure.service";
+import { ColorsService } from '../services/colors.service';
+import { WordingService } from "../services/wording.service";
+
+
 import * as d3 from "d3";
 
 @Component({
@@ -42,8 +48,12 @@ export class InlineCirclesChartComponent implements OnInit {
   tooltipElem: any;
 
 
+  //keys
+  xKeys: Array<string>;
+
   // scales
   xScale: any;
+  xScaleCircles: any;
   colorScale: any;
 
   // axis names
@@ -58,28 +68,105 @@ export class InlineCirclesChartComponent implements OnInit {
   max: number;
   mean: number;
 
+  dictionary;
+
 
 
 
   constructor(
     private defaultVarsService: DefaultVarsService,
     private dimensionsService: DimensionsService,
-    private axisTitleService: AxisTitleService) { }
+    private axisTitleService: AxisTitleService,
+    private localeEsService: LocaleEsService,
+    private measureService: MeasureService,
+    private colorsService: ColorsService,
+    private wordingService: WordingService,) { }
 
 
 
   reshapedata() {
     this.dataChart = this.circlesLayout.data.children;
+    this.xKeys = [Object.keys(this.dataChart[0])[0]]; // not in use
 
     this.xDomain = this.dataChart.map((d) => {
       return d["category"];
     });
 
-    let y;
-
+    this.max = d3.max(this.dataChart, (d) => {
+      return +d['value'].percent;
+    });
     // render everything!
     this.render();
   }
+
+
+  public mouseover(d, i, arr): void {
+    //console.log('overrr', this);
+    d3.select(arr[i]).style("opacity", 0.8);
+    this.tooltipElem
+      .style("cursor", "pointer")
+      .style("width", "auto")
+      .style("height", "auto")
+      .style("display", null)
+      .style("opacity", 0.9);
+  }
+  public mousemove(e, d): void {
+    // d: {key: "tienda", value: 9999923, category: "Total", index: "tienda_4_Total"}
+    // i: 0
+    // arr[i]: <rect class="bar" </rect>
+    // d3.event.target : <rect class="bar" </rect>
+    // d3.event.target.nodeName: rect
+    // d3.event: MouseEvent {isTrusted: true, screenX: -405, screenY: 574, clientX: 952, clientY: 440, …}
+    // this: GroupedVerticalBarChartComponent
+
+    let text: string = "";
+    if (this.tooltipKeys.header) {
+      if (this.tooltipKeys.header === "index") {
+        text +=
+          "<strong>" +
+          this.wordingService.getDictionaryName(
+            this.dictionary[0].name,
+            this.dictionary[0].key,
+            d.index
+          ) +
+          "</strong>" +
+          "<br />";
+      } else {
+        text +=
+          "<strong>" +
+          this.wordingService.getDictionaryName(
+            this.dictionary[0].name,
+            this.dictionary[0].key,
+            d.key
+          ) +
+          "</strong>" +
+          "<br />";
+      }
+
+    }
+
+
+    if (this.measure === "val") {
+      text += this.localeEsService.formatThousands(d.value.sum);
+      text += this.tooltipKeys.measure && this.tooltipKeys.measure.value
+        ? " " + this.tooltipKeys.measure.value
+        : "";
+    }
+    if (this.measure === "perf") {
+      text += this.localeEsService.FORMATROUND(d.value.percent);
+      text += "%";
+    }
+    this.tooltipElem
+      .html(text)
+      .style("left", e.pageX - 32 + "px")
+      .style("top", e.pageY - 60 + "px");
+  }
+
+  public mouseout(d, i, arr): void {
+    d3.select(arr[i]).style("opacity", 1);
+    this.tooltipElem.style("opacity", 0).style("display", "none");
+  }
+
 
   public drawCirclesGroups(): void {
     let xScale = this.xScale;
@@ -119,6 +206,9 @@ export class InlineCirclesChartComponent implements OnInit {
     const default_time: number = this.defaultVarsService.default_time;
     const colorScale = this.colorScale;
     const fill = this.style.fill;
+    const w = this.width / this.dataChart.length;
+    const max = this.max;
+    let xScaleCircles = this.xScaleCircles;
     let circles = this.chartInner
       .selectAll("g.chartGroup")
       .selectAll(".circle")
@@ -135,12 +225,12 @@ export class InlineCirclesChartComponent implements OnInit {
       .enter()
       .append("svg:circle")
       .attr("class", "circle")
-      .attr("cy", 60)
+      .attr("cy", max * 2)
       .attr("cx", function (d, i) {
-        return (i * 60) + 100;
+        return xScaleCircles.bandwidth() / 2;
       })
       .attr("r", function (d) {
-        return d.value.percent;
+        return (d.value.percent * w / max) / 2;
       })
       .attr("fill", (d, i) => {
         if (this.style.fill) {
@@ -163,12 +253,13 @@ export class InlineCirclesChartComponent implements OnInit {
           .on("mouseout", null)
           .on("click", null);
       })
-      .attr("cy", 60)
+      .attr("cy", max * 2)
       .attr("cx", function (d, i) {
-        return (i * 60) + 60;
+        return xScaleCircles.bandwidth() / 2;
       })
       .attr("r", function (d) {
-        return d.value.percent;
+
+        return (d.value.percent * w / max) / 2;
       })
       .attr("fill", (d, i) => {
         if (this.style.fill) {
@@ -177,6 +268,18 @@ export class InlineCirclesChartComponent implements OnInit {
           return colorScale(d);
 
         }
+      }).on("end", (d, i, arr) => {
+        d3.select(arr[i])
+          .on("mouseover", () => {
+            this.mouseover(d, i, arr);
+          })
+          .on("mousemove", (e) => {
+            this.mousemove(e, d);
+          })
+          .on("mouseout", () => {
+            this.mouseout(d, i, arr);
+          })
+          .on("click", null);
       });
 
 
@@ -188,13 +291,11 @@ export class InlineCirclesChartComponent implements OnInit {
       .attr("transform", `translate(0, ${this.height})`)
       .transition()
       .duration(this.defaultVarsService.default_time)
-      .call(this.xAxis);
+      .call(this.xAxis)
+      .selectAll("text")
+      .style("fill", this.circlesLayout.design.text.color);
 
-    // add color to print axis
-    let axis = this.chartOuter.selectAll(".axis");
 
-    let txt = axis.selectAll("text")
-      .style("fill", '#cccccc');
 
 
 
@@ -231,6 +332,7 @@ export class InlineCirclesChartComponent implements OnInit {
     this.width = dimensions.width;
     this.height = dimensions.height;
     this.xScale.domain(this.xDomain).range([0, this.width]);
+    this.xScaleCircles.domain(this.xKeys).rangeRound([0, this.xScale.bandwidth()]);
     this.svg
       .attr("width", this.width + this.margin.right + this.margin.left)
       .attr("height", this.height + this.margin.top + this.margin.bottom)
@@ -256,6 +358,7 @@ export class InlineCirclesChartComponent implements OnInit {
   public runAll = (): void => {
     this.colorScale = d3.scaleOrdinal();
     this.xScale = d3.scaleBand().paddingInner(this.style.paddingInner);
+    this.xScaleCircles = d3.scaleBand().padding(this.style.padding);
 
     ////////// Initialize axis //////////
     this.xAxis = d3.axisBottom(this.xScale);
@@ -368,6 +471,8 @@ export class InlineCirclesChartComponent implements OnInit {
     this.key = this.circlesLayout.key;
     this.chartId = this.key;
     this.class = this.circlesLayout.class;
+    this.dictionary = this.circlesLayout.dictionary;
+    this.measure = this.measureService.switchMeasure(this.circlesLayout.data.format)
 
     this.resize_delay = this.circlesLayout.resize_delay ? this.circlesLayout.resize_delay : this.defaultVarsService.resize_delay;
     this.margin = this.circlesLayout.design.margin;

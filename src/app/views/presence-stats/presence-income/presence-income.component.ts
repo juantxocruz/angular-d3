@@ -112,7 +112,7 @@ export class PresenceIncomeComponent implements OnInit {
   getCirclesChartData(pois: any[]) {
     let result = {
       key: 'income',
-      format: 'percent',
+      format: 'Percent',
       categories: 'Ingresos',
       children: this.getIncomeCircles(pois)
     };
